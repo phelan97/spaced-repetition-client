@@ -8,6 +8,7 @@
   "dependencies": {
     "apollo-boost": "^0.1.22",
     "jwt-decode": "^2.2.0",
+    "next": "^7.0.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.4",
@@ -17,9 +18,11 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "next -p 7777",
+    "build": "next build",
+    "start": "next start",
+    "test": "NODE_ENV=test jest --watch",
+    "test-win": "SET NODE_ENV=test&& jest --watch",
+    "heroku-postbuild": "next build"
   }
 }
