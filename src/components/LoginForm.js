@@ -27,12 +27,7 @@ class LoginForm extends Component {
       <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
         {(login, {loading, error, data }) => {    
          
-          if (error) {
-            console.log(error.message)
-            errMsg = error.message;
-          } else {
-            errMsg = '';
-          }
+
       return (<form method='post' onSubmit={async (e) => {
           e.preventDefault();
           const data = await login();
@@ -43,7 +38,7 @@ class LoginForm extends Component {
         }}>
         <fieldset disabled={loading} aria-busy={loading}>
           <h2>Login to Your Account</h2>
-          <p>Error: {errMsg}</p>
+          <p>Error: {error}</p>
           
           <label htmlFor="email">
             Email
