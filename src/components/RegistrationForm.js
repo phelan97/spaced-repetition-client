@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class LoginForm extends Component {
+class RegistrationForm extends Component {
   render() {
     return (
       <div>
-        <p>This is the login form</p>
+        <p>This is the registration from</p>
         <form 
           className='login-form'
         >
@@ -27,8 +27,4 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
-
-// type Query { test: String! }
-
-// type Mutation { signup(email: String!, password: String!, first: String!, last: String!): String! login(email: String!, password: String!): String! }
+export default RegistrationForm;

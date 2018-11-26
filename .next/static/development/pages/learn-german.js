@@ -10008,7 +10008,7 @@ var NavBar = function NavBar() {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/learn-german.js ***!
   \*************************************/
@@ -10033,5 +10033,5 @@ module.exports = dll_285b98db035e0377e41c;
 
 /***/ })
 
-},[[6,"static/runtime/webpack.js"]]]));;
+},[[5,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=learn-german.js.map
