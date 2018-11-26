@@ -1,34 +1,80 @@
 import React, { Component } from 'react';
+import { Mutation } from 'react-apollo';
+import gql from 'graphql-tag';
+
+const LOGIN_MUTATION = gql`
+  mutation LOGIN_MUTATION(
+          $email: String!,
+          $password: String!) {
+    login(email: $email, password: $password ) 
+  }
+`
 
 class LoginForm extends Component {
-  render() {
+  state = {
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    errMsg: ''
+  }
+  saveToState = (e) => {
+    this.setState({ [e.target.name]: e.target.value})
+  }
+    render() {
+
     return (
-      <div>
-        <p>This is the login form</p>
-        <form 
-          className='login-form'
-        >
-        <label htmlFor='name'>First Name</label>
-        <input type='text' name='name'></input>
-        <br />
-        <label htmlFor='username'>Username</label>
-        <input type='text' name='username'></input>
-        <br />
-        <label htmlFor='password'>Password</label>
-        <input type='password' name='password'></input>
-        <br />
-        <button
-          type="submit">
-          Register
-        </button>
-        </form>
-      </div>
+      <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
+        {(login, {loading, error, data }) => {    
+         
+          if (error) {
+            console.log(error.message)
+            errMsg = error.message;
+          } else {
+            errMsg = '';
+          }
+      return (<form method='post' onSubmit={async (e) => {
+          e.preventDefault();
+          const data = await login();
+          localStorage.setItem('Authorization ', data.data.login)
+
+          
+          
+        }}>
+        <fieldset disabled={loading} aria-busy={loading}>
+          <h2>Login to Your Account</h2>
+          <p>Error: {errMsg}</p>
+          
+          <label htmlFor="email">
+            Email
+          </label>
+          <input 
+          type='email' 
+          name='email' 
+          placeholder='email' 
+          value={this.state.email}
+          onChange={this.saveToState} />
+          <br />
+          <label htmlFor="password">
+            Password
+          </label>
+          <input 
+          type='password' 
+          name='password' 
+          placeholder='password' 
+          value={this.state.password}
+          onChange={this.saveToState} />
+          <br />
+          <button type='submit'>Login!</button>
+        </fieldset>
+
+        
+      </form>)
+         
+        }}
+      </Mutation>
     );
   }
 }
 
 export default LoginForm;
-
-// type Query { test: String! }
-
-// type Mutation { signup(email: String!, password: String!, first: String!, last: String!): String! login(email: String!, password: String!): String! }

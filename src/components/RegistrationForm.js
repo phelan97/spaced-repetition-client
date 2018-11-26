@@ -12,14 +12,6 @@ const SIGNUP_MUTATION = gql`
   }
 `
 
-// type Mutation { 
-  // signup(email: String!, 
-  // password: String!, 
-  // first: String!, 
-  // last: String!): String! 
-  
-  // login(email: String!, password: String!): String! }
-
 class RegistrationForm extends Component {
   state = {
     firstname: '',
