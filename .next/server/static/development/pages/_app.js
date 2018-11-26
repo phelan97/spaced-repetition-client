@@ -526,8 +526,9 @@ function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_BASE_URL", function() { return API_BASE_URL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "endpoint", function() { return endpoint; });
-var API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api';
-var endpoint = "http://localhost:7777";
+var API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080/api'; // export const endpoint = `https://spaced-repetition-api.herokuapp.com/`;
+
+var endpoint = "http://localhost:4000/";
 
 /***/ }),
 
@@ -552,7 +553,8 @@ __webpack_require__.r(__webpack_exports__);
 function createClient(_ref) {
   var headers = _ref.headers;
   return new apollo_boost__WEBPACK_IMPORTED_MODULE_1___default.a({
-    uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
+    // uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
+    uri: _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"],
     request: function request(operation) {
       operation.setContext({
         fetchOptions: {

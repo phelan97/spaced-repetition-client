@@ -18,10 +18,11 @@
     "react-router-dom": "^4.1.1",
     "redux": "^4.0.1",
     "redux-form": "^7.3.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "styled-components": "^4.1.1"
   },
   "scripts": {
-    "dev": "next -p 7777",
+    "dev": "next -p 3000",
     "build": "next build",
     "start": "next start",
     "test": "NODE_ENV=test jest --watch",
