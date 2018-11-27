@@ -88,15 +88,15 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./pages/login.js":
-/*!************************!*\
-  !*** ./pages/login.js ***!
-  \************************/
+/***/ "./pages/signup.js":
+/*!*************************!*\
+  !*** ./pages/signup.js ***!
+  \*************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -106,13 +106,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _src_components_LoginForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/LoginForm */ "./src/components/LoginForm.js");
-var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\pages\\login.js";
+/* harmony import */ var _src_components_RegistrationForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/RegistrationForm */ "./src/components/RegistrationForm.js");
+var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\pages\\signup.js";
 
 
 
 
-var LoginPage = function LoginPage() {
+var Signup = function Signup() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
@@ -125,7 +125,7 @@ var LoginPage = function LoginPage() {
       lineNumber: 8
     },
     __self: this
-  }, "This is the login Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, "This is the Signup Page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_RegistrationForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
@@ -134,35 +134,28 @@ var LoginPage = function LoginPage() {
   }));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (LoginPage);
+/* harmony default export */ __webpack_exports__["default"] = (Signup);
 
 /***/ }),
 
-/***/ "./src/components/LoginForm.js":
-/*!*************************************!*\
-  !*** ./src/components/LoginForm.js ***!
-  \*************************************/
+/***/ "./src/components/RegistrationForm.js":
+/*!********************************************!*\
+  !*** ./src/components/RegistrationForm.js ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-apollo */ "react-apollo");
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_3__);
-
-var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\src\\components\\LoginForm.js";
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "react-apollo");
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "graphql-tag");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\src\\components\\RegistrationForm.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -183,7 +176,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  mutation LOGIN_MUTATION(\n          $email: String!,\n          $password: String!) {\n    login(email: $email, password: $password ) \n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  mutation SIGNUP_MUTATION($firstname: String!, \n          $lastname: String!, \n          $email: String!,\n          $password: String!) {\n    signup(email: $email, password: $password, \n      first: $firstname, last: $lastname ) \n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -197,32 +190,31 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var LOGIN_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_3___default()(_templateObject());
+var SIGNUP_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
-var LoginForm =
+var RegistrationForm =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(LoginForm, _Component);
+  _inherits(RegistrationForm, _Component);
 
-  function LoginForm() {
+  function RegistrationForm() {
     var _getPrototypeOf2;
 
     var _this;
 
-    _classCallCheck(this, LoginForm);
+    _classCallCheck(this, RegistrationForm);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(LoginForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(RegistrationForm)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       firstname: '',
       lastname: '',
       email: '',
-      password: '',
-      errMsg: ''
+      password: ''
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "saveToState", function (e) {
@@ -232,90 +224,109 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(LoginForm, [{
+  _createClass(RegistrationForm, [{
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_2__["Mutation"], {
-        mutation: LOGIN_MUTATION,
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Mutation"], {
+        mutation: SIGNUP_MUTATION,
         variables: this.state,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 27
         },
         __self: this
-      }, function (login, _ref) {
-        var loading = _ref.loading,
-            error = _ref.error,
-            data = _ref.data;
-        if (error) return "Error ".concat(error);
-        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+      }, function (signup, _ref) {
+        var error = _ref.error,
+            loading = _ref.loading;
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           method: "post",
-          onSubmit:
-          /*#__PURE__*/
-          function () {
-            var _ref2 = _asyncToGenerator(
-            /*#__PURE__*/
-            _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(e) {
-              var data;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-                while (1) {
-                  switch (_context.prev = _context.next) {
-                    case 0:
-                      e.preventDefault();
-                      _context.next = 3;
-                      return login();
-
-                    case 3:
-                      data = _context.sent;
-                      localStorage.setItem('Authorization ', data.data.login);
-
-                    case 5:
-                    case "end":
-                      return _context.stop();
-                  }
-                }
-              }, _callee, this);
-            }));
-
-            return function (_x) {
-              return _ref2.apply(this, arguments);
-            };
-          }(),
+          onSubmit: function onSubmit(e) {
+            e.preventDefault();
+            signup();
+          },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 30
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
           disabled: loading,
           "aria-busy": loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 39
+            lineNumber: 34
           },
           __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 35
+          },
+          __self: this
+        }, "Signup for an Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 36
+          },
+          __self: this
+        }, "Error: ", error), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "firstname",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 37
+          },
+          __self: this
+        }, "First Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          name: "firstname",
+          placeholder: "firstname",
+          value: _this2.state.firstname,
+          onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 40
           },
           __self: this
-        }, "Login to Your Account"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 46
           },
           __self: this
-        }, "Error: ", error), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+          htmlFor: "lastname",
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 47
+          },
+          __self: this
+        }, "Last Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          name: "lastname",
+          placeholder: "lastname",
+          value: _this2.state.lastname,
+          onChange: _this2.saveToState,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 50
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56
+          },
+          __self: this
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 43
+            lineNumber: 57
           },
           __self: this
-        }, "Email"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "email",
           name: "email",
           placeholder: "email",
@@ -323,23 +334,23 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 60
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 52
+            lineNumber: 66
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "password",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 53
+            lineNumber: 67
           },
           __self: this
-        }, "Password"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "password",
           name: "password",
           placeholder: "password",
@@ -347,54 +358,43 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 70
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 62
+            lineNumber: 76
           },
           __self: this
-        }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 63
+            lineNumber: 77
           },
           __self: this
-        }, "Login!")));
+        }, "Sign Up!")));
       });
     }
   }]);
 
-  return LoginForm;
-}(react__WEBPACK_IMPORTED_MODULE_1__["Component"]);
+  return RegistrationForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (LoginForm);
+/* harmony default export */ __webpack_exports__["default"] = (RegistrationForm);
 
 /***/ }),
 
-/***/ 3:
-/*!******************************!*\
-  !*** multi ./pages/login.js ***!
-  \******************************/
+/***/ 6:
+/*!*******************************!*\
+  !*** multi ./pages/signup.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./pages/login.js */"./pages/login.js");
+module.exports = __webpack_require__(/*! ./pages/signup.js */"./pages/signup.js");
 
-
-/***/ }),
-
-/***/ "@babel/runtime/regenerator":
-/*!*********************************************!*\
-  !*** external "@babel/runtime/regenerator" ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@babel/runtime/regenerator");
 
 /***/ }),
 
@@ -443,4 +443,4 @@ module.exports = require("react-apollo");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=signup.js.map
