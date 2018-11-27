@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Meta from './Meta'
-// import './Main.css';
 import "./Main.css";
 
 class Page extends Component {

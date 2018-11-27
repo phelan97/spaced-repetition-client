@@ -4,7 +4,6 @@ import NavBar from './NavBar'
 const style = <style jsx>{`
 header {
   display: flex;
-  
   justify-content: space-between;
   padding-top: 2vh;
   padding-bottom: 2vh;
