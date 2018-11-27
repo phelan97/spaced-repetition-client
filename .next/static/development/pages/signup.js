@@ -23523,6 +23523,7 @@ function (_Component) {
       }, function (signup, _ref) {
         var error = _ref.error,
             loading = _ref.loading;
+        if (error) return "Error ".concat(error);
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           method: "post",
           onSubmit: function onSubmit(e) {
@@ -23531,7 +23532,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 31
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
@@ -23539,26 +23540,26 @@ function (_Component) {
           "aria-busy": loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 34
+            lineNumber: 35
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 36
           },
           __self: this
         }, "Signup for an Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 37
           },
           __self: this
         }, "Error: ", error), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "firstname",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37
+            lineNumber: 38
           },
           __self: this
         }, "First Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23569,20 +23570,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40
+            lineNumber: 41
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 46
+            lineNumber: 47
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "lastname",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 48
           },
           __self: this
         }, "Last Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23593,20 +23594,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 50
+            lineNumber: 51
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 56
+            lineNumber: 57
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 58
           },
           __self: this
         }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23617,20 +23618,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 60
+            lineNumber: 61
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 66
+            lineNumber: 67
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "password",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 68
           },
           __self: this
         }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23641,20 +23642,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 70
+            lineNumber: 71
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 76
+            lineNumber: 77
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 78
           },
           __self: this
         }, "Sign Up!")));
@@ -23669,7 +23670,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 6:
+/***/ 5:
 /*!*******************************!*\
   !*** multi ./pages/signup.js ***!
   \*******************************/
@@ -23694,5 +23695,5 @@ module.exports = dll_285b98db035e0377e41c;
 
 /***/ })
 
-},[[6,"static/runtime/webpack.js"]]]));;
+},[[5,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=signup.js.map
