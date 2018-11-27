@@ -31,11 +31,8 @@ const DisplayError = ({ error }) => {
           {error.message.replace('GraphQL error: ', '')}
         </p>
       </div>
-<<<<<<< HEAD
       
       
-=======
->>>>>>> 27f03384a5294ea858543d1b8cb8632c3cd8720d
     ));
     
   }
