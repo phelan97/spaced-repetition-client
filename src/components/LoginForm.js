@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './Errors';
+import { ApolloConsumer } from 'react-apollo';
 
 const LOGIN_MUTATION = gql`
   mutation LOGIN_MUTATION(
@@ -10,9 +11,11 @@ const LOGIN_MUTATION = gql`
     login(email: $email, password: $password ) 
   }
 `
+// TODO: Refactor this into Login or Signup! 
 
 class LoginForm extends Component {
   state = {
+    login: false,
     firstname: '',
     lastname: '',
     email: '',
@@ -21,7 +24,18 @@ class LoginForm extends Component {
   }
   saveToState = (e) => {
     this.setState({ [e.target.name]: e.target.value})
+    
   }
+
+  // {!login && (
+  //   <input
+  //     value={name}
+  //     onChange={e => this.setState({ name: e.target.value })}
+  //     type="text"
+  //     placeholder="Your name"
+  //   />
+  // )}
+  
     render() {
 
     return (
@@ -31,11 +45,10 @@ class LoginForm extends Component {
       return (<form method='post' onSubmit={async (e) => {
           e.preventDefault();
           const data = await login();
-          localStorage.setItem('Authorization ', data.data.login)
+          localStorage.setItem('AUTH_TOKEN', data.data.login)
 
-          
-          
         }}>
+
         <fieldset disabled={loading} aria-busy={loading}>
           <h2>Login to Your Account</h2>
           <Error error={error} />

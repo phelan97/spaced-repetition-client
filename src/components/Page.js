@@ -3,6 +3,7 @@ import Header from './Header';
 import Meta from './Meta'
 
 class Page extends Component {
+  
   render() {
     return (
       <div>
