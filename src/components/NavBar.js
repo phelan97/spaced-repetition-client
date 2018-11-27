@@ -28,14 +28,11 @@ const NavBar = () => {
       <li><Link href='/signup'><a>Signup</a></Link></li>
       <li><Link href='/learn-german'><a>Learn German</a></Link></li>
       <li>{authToken ? (
-          <div
-            className=""
-            onClick={() => {
-              storage() && localStorage.removeItem(AUTH_TOKEN)
-            }}
-          >
-            logout
-          </div>
+          <Link href='/'>
+            <a onClick={() => {
+              localStorage.removeItem('AUTH_TOKEN')
+            }}>Logout</a>
+          </Link>
         ) : (
           <Link href='/login'><a>Login</a></Link>
         )}</li>
