@@ -1,5 +1,6 @@
 // import styled from 'styled-components';
 import React from 'react';
+import './Errors.css';
 
 // import PropTypes from 'prop-types';
 
@@ -28,18 +29,6 @@ const DisplayError = ({ error }) => {
           {error.message.replace('GraphQL error: ', '')}
         </p>
       </div>
-      <style jsx>{`
-      strong {
-        color: "red";
-      }
-
-      ul {
-        padding: 0;
-      }
-
-      
-    `}</style>
-      
     ));
     
   }

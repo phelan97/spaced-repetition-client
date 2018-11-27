@@ -1,4 +1,48 @@
 {
+  "./NavBar.css": [
+    {
+      "id": "./src/components/NavBar.css",
+      "name": "./src/components/NavBar.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "undefined": [
+    {
+      "id": 6,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./Header.css": [
+    {
+      "id": "./src/components/Header.css",
+      "name": "./src/components/Header.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
+  "./Errors.css": [
+    {
+      "id": "./src/components/Errors.css",
+      "name": "./src/components/Errors.css",
+      "file": "static/chunks/styles.js",
+      "publicPath": "static/chunks/styles.js"
+    }
+  ],
   "./noop": [
     {
       "id": "./node_modules/next/dist/client/noop.js",
