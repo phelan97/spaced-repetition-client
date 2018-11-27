@@ -3,6 +3,7 @@ import LandingPage from '../src/components/LandingPage';
 import Link from 'next/link';
 
 
+
 class Main extends Component {
   render() {
     return (

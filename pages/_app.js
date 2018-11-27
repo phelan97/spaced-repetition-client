@@ -16,6 +16,8 @@ class MyApp extends App {
               margin: 0;
               padding: 0;
               font-family: sans-serif;
+              background-color: black;
+              color: green;
             }
           `}</style>
             <Component />

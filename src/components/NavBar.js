@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import './NavBar.css';
+
 const AUTH_TOKEN = 'AUTH_TOKEN';
 
 const NavBar = () => {
@@ -14,7 +14,7 @@ const NavBar = () => {
 
       return false;
   } catch (e) {
-      console.log(e.message);
+      //console.log(e.message);
       return false;
   }
   };
@@ -22,6 +22,7 @@ const NavBar = () => {
   const authToken = storage();
   
   return (
+    <div className='nav-container'>
     <ul className="nav-links">
       <li><Link href='/'><a>Main</a></Link></li>
       {authToken ? (
@@ -52,6 +53,25 @@ const NavBar = () => {
       
       
     </ul>
+
+    <style jsx>{`
+      li {
+        display: inline;
+        margin-left: 20px;
+      }
+      ul {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      a {
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: red;
+      }
+
+    `}</style>
+    </div>
   );
 
   
