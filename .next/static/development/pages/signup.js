@@ -23421,6 +23421,97 @@ var Signup = function Signup() {
 
 /***/ }),
 
+/***/ "./src/components/Errors.js":
+/*!**********************************!*\
+  !*** ./src/components/Errors.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\src\\components\\Errors.js";
+// import styled from 'styled-components';
+ // import PropTypes from 'prop-types';
+// const ErrorStyles = styled.div`
+//   padding: 2rem;
+//   background: white;
+//   margin: 2rem 0;
+//   border: 1px solid rgba(0, 0, 0, 0.05);
+//   border-left: 5px solid red;
+//   p {
+//     margin: 0;
+//     font-weight: 100;
+//   }
+//   strong {
+//     margin-right: 1rem;
+//   }
+// `;
+
+var DisplayError = function DisplayError(_ref) {
+  var error = _ref.error;
+  if (!error || !error.message) return null;
+
+  if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {
+    return error.networkError.result.errors.map(function (error, i) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: i,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        "data-test": "graphql-error",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 27
+        },
+        __self: this
+      }, "Shoot!"), error.message.replace('GraphQL error: ', '')));
+    });
+  }
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    "data-test": "graphql-error",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }, "Shoot!"), error.message.replace('GraphQL error: ', '')));
+}; // DisplayError.defaultProps = {
+//   error: {},
+// };
+// DisplayError.propTypes = {
+//   error: PropTypes.object,
+// };
+
+
+/* harmony default export */ __webpack_exports__["default"] = (DisplayError);
+
+/***/ }),
+
 /***/ "./src/components/RegistrationForm.js":
 /*!********************************************!*\
   !*** ./src/components/RegistrationForm.js ***!
@@ -23436,6 +23527,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_apollo__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Errors */ "./src/components/Errors.js");
 var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\src\\components\\RegistrationForm.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -23472,6 +23564,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
+ // import styled from 'styled-components'
 
 var SIGNUP_MUTATION = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
@@ -23517,13 +23611,15 @@ function (_Component) {
         variables: this.state,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 31
         },
         __self: this
       }, function (signup, _ref) {
         var error = _ref.error,
             loading = _ref.loading;
-        if (error) return "Error ".concat(error);
+        {
+          /* if(error) return `Error ${error}` */
+        }
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
           method: "post",
           onSubmit: function onSubmit(e) {
@@ -23532,7 +23628,7 @@ function (_Component) {
           },
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31
+            lineNumber: 35
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("fieldset", {
@@ -23540,26 +23636,27 @@ function (_Component) {
           "aria-busy": loading,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35
+            lineNumber: 39
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 36
+            lineNumber: 40
           },
           __self: this
-        }, "Signup for an Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        }, "Signup for an Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Errors__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          error: error,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37
+            lineNumber: 41
           },
           __self: this
-        }, "Error: ", error), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "firstname",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 38
+            lineNumber: 42
           },
           __self: this
         }, "First Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23570,20 +23667,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 41
+            lineNumber: 45
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 47
+            lineNumber: 51
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "lastname",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 48
+            lineNumber: 52
           },
           __self: this
         }, "Last Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23594,20 +23691,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 51
+            lineNumber: 55
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 57
+            lineNumber: 61
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "email",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 58
+            lineNumber: 62
           },
           __self: this
         }, "Email"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23618,20 +23715,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 61
+            lineNumber: 65
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 67
+            lineNumber: 71
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
           htmlFor: "password",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 68
+            lineNumber: 72
           },
           __self: this
         }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -23642,20 +23739,20 @@ function (_Component) {
           onChange: _this2.saveToState,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 71
+            lineNumber: 75
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 77
+            lineNumber: 81
           },
           __self: this
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           type: "submit",
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 78
+            lineNumber: 82
           },
           __self: this
         }, "Sign Up!")));
@@ -23670,7 +23767,7 @@ function (_Component) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 3:
 /*!*******************************!*\
   !*** multi ./pages/signup.js ***!
   \*******************************/
@@ -23695,5 +23792,5 @@ module.exports = dll_285b98db035e0377e41c;
 
 /***/ })
 
-},[[5,"static/runtime/webpack.js"]]]));;
+},[[3,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=signup.js.map

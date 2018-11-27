@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import Error from './Errors';
+// import styled from 'styled-components'
+
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION($firstname: String!, 
@@ -22,11 +25,12 @@ class RegistrationForm extends Component {
   saveToState = (e) => {
     this.setState({ [e.target.name]: e.target.value})
   }
+  
     render() {
     return (
       <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
         {(signup, {error, loading}) => {
-          if(error) return `Error ${error}`
+          {/* if(error) return `Error ${error}` */}
        
       return (<form method='post' onSubmit={(e) => {
           e.preventDefault();
@@ -34,7 +38,7 @@ class RegistrationForm extends Component {
         }}>
         <fieldset disabled={loading} aria-busy={loading}>
           <h2>Signup for an Account</h2>
-          <p>Error: {error}</p>
+          <Error error={error} />
           <label htmlFor="firstname">
             First Name
           </label>

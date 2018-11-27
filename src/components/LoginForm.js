@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import Error from './Errors';
 
 const LOGIN_MUTATION = gql`
   mutation LOGIN_MUTATION(
@@ -38,8 +39,8 @@ class LoginForm extends Component {
         }}>
         <fieldset disabled={loading} aria-busy={loading}>
           <h2>Login to Your Account</h2>
-          <p>Error: {error}</p>
-          
+          <Error error={error} />
+         
           <label htmlFor="email">
             Email
           </label>
