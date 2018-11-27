@@ -26,8 +26,12 @@ class LoginForm extends Component {
 
     return (
       <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
+<<<<<<< HEAD
         {(login, {loading, error, data }) => {    
           {/* if(error) return `Error ${error}` */}
+=======
+        {(login, {loading, error, data }) => {
+>>>>>>> 27f03384a5294ea858543d1b8cb8632c3cd8720d
 
       return (<form method='post' onSubmit={async (e) => {
           e.preventDefault();

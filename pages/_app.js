@@ -11,6 +11,13 @@ class MyApp extends App {
       <Container>
         <ApolloProvider client={apollo}>
           <Page>
+          <style jsx>{`
+            body {
+              margin: 0;
+              padding: 0;
+              font-family: sans-serif;
+            }
+          `}</style>
             <Component />
           </Page>
         </ApolloProvider>

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar'
+import './Header.css';
 
 class Header extends Component {
   render() {
     return (
-      <div>
-        <p>This is the Header</p>
+      <header>
+        <h1>Header</h1>
         <NavBar />
-      </div>
+      </header>
     );
   }
 }

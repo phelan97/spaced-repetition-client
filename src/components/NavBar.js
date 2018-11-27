@@ -1,14 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
+import './NavBar.css';
 
 const NavBar = () => {
   return (
-    <div>
-      <Link href='/'><a>Main</a></Link><br />
-      <Link href='/login'><a>Login</a></Link><br />
-      <Link href='/signup'><a>Signup</a></Link><br />
-      <Link href='/learn-german'><a>Learn German</a></Link><br />
-    </div>
+    <ul className="nav-links">
+      <li><Link href='/'><a>Main</a></Link></li>
+      <li><Link href='/login'><a>Login</a></Link></li>
+      <li><Link href='/signup'><a>Signup</a></Link></li>
+      <li><Link href='/learn-german'><a>Learn German</a></Link></li>
+    </ul>
   );
 };
 
