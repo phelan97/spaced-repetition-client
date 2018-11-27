@@ -24,18 +24,33 @@ const NavBar = () => {
   return (
     <ul className="nav-links">
       <li><Link href='/'><a>Main</a></Link></li>
-      <li><Link href='/login'><a>Login</a></Link></li>
-      <li><Link href='/signup'><a>Signup</a></Link></li>
-      <li><Link href='/learn-german'><a>Learn German</a></Link></li>
-      <li>{authToken ? (
-          <Link href='/'>
-            <a onClick={() => {
-              localStorage.removeItem('AUTH_TOKEN')
-            }}>Logout</a>
-          </Link>
+      {authToken ? (
+        <React.Fragment>
+          <li>
+            <Link href='/learn-german'><a>Learn German</a></Link>
+          </li>
+          <li>
+            <Link href='/'>
+              <a onClick={() => {
+                localStorage.removeItem('AUTH_TOKEN')
+              }}>Logout</a>
+            </Link>
+          </li>
+        
+        </React.Fragment>
         ) : (
-          <Link href='/login'><a>Login</a></Link>
-        )}</li>
+          <React.Fragment>
+            <li>
+              <Link href='/login'><a>Login</a></Link>
+            </li>
+            <li>
+              <Link href='/signup'><a>Signup</a></Link>
+            </li>
+          </React.Fragment>
+        )}
+
+      
+      
     </ul>
   );
 
