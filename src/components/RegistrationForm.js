@@ -26,6 +26,7 @@ class RegistrationForm extends Component {
     return (
       <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
         {(signup, {error, loading}) => {
+          if(error) return `Error ${error}`
        
       return (<form method='post' onSubmit={(e) => {
           e.preventDefault();
