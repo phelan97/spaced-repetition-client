@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,7 +106,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _src_components_LanguageCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/components/LanguageCard */ "./src/components/LanguageCard.js");
 var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\pages\\learn-german.js";
+
 
 
 
@@ -123,14 +125,60 @@ var LearnGerman = function LearnGerman() {
       lineNumber: 8
     },
     __self: this
-  }, "Learn German page"));
+  }, "Learn German page"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_src_components_LanguageCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (LearnGerman);
 
 /***/ }),
 
-/***/ 4:
+/***/ "./src/components/LanguageCard.js":
+/*!****************************************!*\
+  !*** ./src/components/LanguageCard.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+var _jsxFileName = "C:\\Users\\Matt\\thinkful\\mathew-spaced-repetition\\spaced-repetition-client\\src\\components\\LanguageCard.js";
+
+
+var LanguageCard = function LanguageCard(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, "This is where the Language Card stuff is going to go."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, "Should look like props.germanWord, then input field, then if button is clicked, it shows the english word"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (LanguageCard);
+
+/***/ }),
+
+/***/ 5:
 /*!*************************************!*\
   !*** multi ./pages/learn-german.js ***!
   \*************************************/
