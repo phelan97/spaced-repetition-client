@@ -195,28 +195,44 @@ var DisplayError = function DisplayError(_ref) {
         __self: this
       }, "Shoot!"), error.message.replace('GraphQL error: ', '')));
     });
+    react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
+      jsx: true,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33
+      },
+      __self: this
+    }, "\n      strong {\n        color: \"red\";\n      }\n\n      ul {\n        padding: 0;\n      }\n\n      \n    ");
   }
 
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 46
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     "data-test": "graphql-error",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 47
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 48
     },
     __self: this
   }, "Shoot!"), error.message.replace('GraphQL error: ', '')));
+  react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("style", {
+    jsx: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 53
+    },
+    __self: this
+  }, "\n      p {\n        color: \"red\";\n      }\n\n      ul {\n        padding: 0;\n      }\n\n      \n    ");
 }; // DisplayError.defaultProps = {
 //   error: {},
 // };

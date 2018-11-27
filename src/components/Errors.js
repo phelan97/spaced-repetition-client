@@ -28,7 +28,20 @@ const DisplayError = ({ error }) => {
           {error.message.replace('GraphQL error: ', '')}
         </p>
       </div>
+      <style jsx>{`
+      strong {
+        color: "red";
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      
+    `}</style>
+      
     ));
+    
   }
   return (
     <div>
@@ -38,6 +51,17 @@ const DisplayError = ({ error }) => {
       </p>
     </div>
   );
+  <style jsx>{`
+      p {
+        color: "red";
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      
+    `}</style>
 };
 
 // DisplayError.defaultProps = {
