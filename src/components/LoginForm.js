@@ -3,6 +3,8 @@ import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './Errors';
 import { ApolloConsumer } from 'react-apollo';
+import Router from 'next/router'
+
 
 const LOGIN_MUTATION = gql`
   mutation LOGIN_MUTATION(
@@ -35,7 +37,7 @@ class LoginForm extends Component {
   //     placeholder="Your name"
   //   />
   // )}
-  
+
     render() {
 
     return (
@@ -46,6 +48,8 @@ class LoginForm extends Component {
           e.preventDefault();
           const data = await login();
           localStorage.setItem('AUTH_TOKEN', data.data.login)
+          this.setState({login: data.data.login})
+          Router.push('/learn-german')
 
         }}>
 
@@ -83,6 +87,7 @@ class LoginForm extends Component {
       </Mutation>
     );
   }
+
 }
 
 export default LoginForm;
