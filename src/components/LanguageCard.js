@@ -60,7 +60,7 @@ class LanguageCard extends Component {
             variables.englishWord = data.question.englishWord;
 
             return (<React.Fragment>
-              <p className='germanWord'>{variables.germanWord}</p>
+              <p className='englishWord'>{variables.englishWord}</p>
 
             </React.Fragment>)
           }}
