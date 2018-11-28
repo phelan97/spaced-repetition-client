@@ -13,10 +13,11 @@ function createClient({ headers }) {
     return {
       headers: {
         ...headers,
-        authorization: token ? `Bearer ${token}` : ''
+        authorization: token ? `${token}` : ''
       }
     }
   })
+  console.log('token is ', token)
 
   return new ApolloClient({
     uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
@@ -34,7 +35,7 @@ function createClient({ headers }) {
         },
         headers: {
           ...headers,
-          authorization: token ? `Bearer ${token}` : '',
+          authorization: token ? `${token}` : '',
         },
       });
     },

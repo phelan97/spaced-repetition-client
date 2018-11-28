@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-const AUTH_TOKEN = 'AUTH_TOKEN';
+const AUTH_TOKEN = "Authorization";
 
 const NavBar = () => {
   function storage() {
@@ -33,7 +33,7 @@ const NavBar = () => {
           <li>
             <Link href='/'>
               <a onClick={() => {
-                localStorage.removeItem('AUTH_TOKEN')
+                localStorage.removeItem("Authorization")
               }}>Logout</a>
             </Link>
           </li>

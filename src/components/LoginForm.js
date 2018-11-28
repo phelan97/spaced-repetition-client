@@ -47,7 +47,7 @@ class LoginForm extends Component {
       return (<form method='post' onSubmit={async (e) => {
           e.preventDefault();
           const data = await login();
-          localStorage.setItem('AUTH_TOKEN', data.data.login)
+          localStorage.setItem("Authorization", data.data.login)
           this.setState({login: data.data.login})
           Router.push('/learn-german')
 

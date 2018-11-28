@@ -2,7 +2,7 @@
 export default function storage() {
   try {
     // The problem was here
-    const authToken = localStorage.getItem('AUTH_TOKEN')
+    const authToken = localStorage.getItem("Authorization")
     if (authToken !== null) {
       return authToken;
     }
