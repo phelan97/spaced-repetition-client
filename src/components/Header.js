@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar'
 
-const style = <style jsx>{`
+class Header extends Component {
+  render() {
+    return (
+      <header>
+        <h1>Lernen Sie Deutsch! (Learn German)</h1>
+        <NavBar />
+        
+        <style jsx>{`
 header {
   display: flex;
   justify-content: space-between;
@@ -18,15 +25,6 @@ h1 {
 }
 
 `}</style>
-
-
-class Header extends Component {
-  render() {
-    return (
-      <header>
-        <h1>Lernen Sie Deutsch! (Learn German)</h1>
-        <NavBar />
-        {style}
       </header>
     );
   }

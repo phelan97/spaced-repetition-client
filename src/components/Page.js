@@ -67,6 +67,7 @@ const style = <style jsx>{`
   }
 `}</style>
 
+
 class Page extends Component {
   
   render() {
@@ -75,6 +76,8 @@ class Page extends Component {
         <Meta />
         <Header />
         {this.props.children}
+
+        {style}
         
       </div>
     );
