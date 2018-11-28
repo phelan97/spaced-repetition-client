@@ -21,10 +21,11 @@ const NavBar = () => {
 
   const authToken = storage();
   
+  /* <li><Link href='/'><a>Main</a></Link></li> */
   return (
     <div className='nav-container'>
     <ul className="nav-links">
-      <li><Link href='/'><a>Main</a></Link></li>
+
       {authToken ? (
         <React.Fragment>
           <li>
@@ -45,31 +46,32 @@ const NavBar = () => {
               <Link href='/login'><a>Login</a></Link>
             </li>
             <li>
-              <Link href='/signup'><a>Signup</a></Link>
+              <Link href='/signup'><a>Sign up</a></Link>
             </li>
           </React.Fragment>
         )}
-
-      
-      
     </ul>
 
     <style jsx>{`
       li {
         display: inline;
         margin-left: 20px;
+        font-weight: 600;
       }
       ul {
         padding: 0;
         display: flex;
         justify-content: space-between;
+        margin-right: 20vh;
       }
       a {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         text-decoration: none;
-        color: red;
+        color: black;
       }
-
+      a:hover {
+        border-bottom: 2px solid #5F9267;
+      }
     `}</style>
     </div>
   );
