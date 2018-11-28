@@ -61,8 +61,6 @@ const style = <style jsx>{`
   body {
     background-color: #f2e9e0;
     font-family: 'Montserrat', sans-serif;
-    padding-left: 20vw;
-    padding-right: 20vw;
     color: #121C37;
   }
 `}</style>
