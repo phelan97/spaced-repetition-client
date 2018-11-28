@@ -26,7 +26,7 @@ function createClient({ headers }) {
       resolvers: {},
       typeDefs: ``,
     },
-    uri: endpoint,
+    // uri: endpoint,
     request: operation => {
       operation.setContext({
         fetchOptions: {
