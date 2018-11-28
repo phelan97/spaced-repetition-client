@@ -6,7 +6,6 @@
     "react-scripts": "2.1.1"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "apollo-boost": "^0.1.22",
     "apollo-link-context": "^1.0.10",
     "graphql": "^14.0.2",
