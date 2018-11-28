@@ -1,6 +1,6 @@
 import withApollo from 'next-with-apollo';
 import ApolloClient from 'apollo-boost';
-import { endpoint } from '../config';
+import { endpoint, prodEndpoint } from '../config';
 import { setContext } from 'apollo-link-context';
 import storageCheck from './storageCheck';
 
@@ -19,8 +19,8 @@ function createClient({ headers }) {
   })
 
   return new ApolloClient({
-    // uri: process.env.NODE_ENV === 'development' ? endpoint : endpoint,
-    uri: endpoint,
+    uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
+    // uri: endpoint,
     clientState: {
       defaults: {},
       resolvers: {},
