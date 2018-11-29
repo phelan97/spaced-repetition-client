@@ -31,14 +31,30 @@ class LanguageCard extends Component {
     germanAnswer: '',
   }
 
-  componentDidMount() {
-    const token = storageCheck();
+  // componentDidMount() {
+  //   const token = storageCheck();
     
-    if (!token) {
-      return Router.push('/login');
-    }
+  //   if (!token) {
+  //     return Router.push('/login');
+  //   }
 
     
+  // }
+
+  componentWillMount() {
+    try {
+      // The problem was here
+      const authToken = localStorage.getItem("Authorization")
+      console.log('AuthToken', authToken)
+      if (authToken !== null) {
+        console.log('AuthToken', authToken)
+      } else {
+        Router.push('/login');
+      }
+    } catch (e) {
+        // console.log('Login error', e.message);
+        return false;
+    }
   }
 
   saveGuessToState = (e) => {

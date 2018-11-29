@@ -47,9 +47,9 @@ class LoginForm extends Component {
       return (<form method='post' onSubmit={async (e) => {
           e.preventDefault();
           const data = await login();
-          localStorage.setItem("Authorization", data.data.login)
+          await localStorage.setItem("Authorization", data.data.login)
           await this.setState({login: data.data.login})
-          Router.push('/learn-german')
+          await Router.push('/learn-german')
 
         }}>
 
