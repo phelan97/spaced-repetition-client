@@ -64,8 +64,11 @@ class LanguageCard extends Component {
         <Query query={QUESTION_QUERY}>
           {({error, loading, data, refetch}) => {
             console.log('Query is running', data)
-            if(error) return <p>Error!</p>
-            if(loading) return <p>Loading...</p>
+            if(error) {
+              this.clearState();
+              return <p>Error!</p>
+            }
+            {/* if(loading) return <p> </p> */}
             if(!data.question) return <p>No data found.</p>
             return (
               <React.Fragment>
