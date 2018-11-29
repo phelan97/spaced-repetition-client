@@ -49,10 +49,31 @@ class LanguageCard extends Component {
     this.setState({ germanAnswer: word})
   }
 
-  clearState = (input) => {
+  clearState = () => {
     this.setState({
-      previousAnswer: input,
+      germanAnswer: '',
     })
+  }
+
+  loadQuery = (variables) => {
+    return (
+        <Query query={QUESTION_QUERY}>
+          {({error, loading, data}) => {
+            console.log('Query is running', data)
+            if(error) return <p>Error!</p>
+            if(loading) return <p>Loading...</p>
+            if(!data.question) return <p>No data found.</p>
+            
+            variables.germanWord = data.question.germanWord;
+            variables.englishWord = data.question.englishWord;
+            
+            return (<React.Fragment>
+              <p className='englishWord'>{variables.englishWord}</p>
+
+            </React.Fragment>)
+          }}
+        </Query>
+    )
   }
 
   render() {
@@ -68,32 +89,19 @@ class LanguageCard extends Component {
         <p>Should look like props.germanWord, then input field, then if button is clicked, 
           it shows the english word</p>
         <br />
-        <Query query={QUESTION_QUERY}>
-          {({error, loading, data}) => {
-            console.log('Query is running', data)
-            if(error) return <p>Error!</p>
-            if(loading) return <p>Loading...</p>
-            if(!data.question) return <p>No data found.</p>
-            
-            variables.germanWord = data.question.germanWord;
-            variables.englishWord = data.question.englishWord;
-
-            return (<React.Fragment>
-              <p className='englishWord'>{variables.englishWord}</p>
-
-            </React.Fragment>)
-          }}
-        </Query>
+        {this.loadQuery(variables)}
         
         <Mutation mutation={CHECK_ANSWER} variables={variables}>
       {(checkAnswer, {loading, error, data }) => {    
         return (<form method='post' onSubmit={async (e) => {
           
-          console.log('the state is', this.state)
+          {/* console.log('the state is', this.state) */}
           e.preventDefault();
           const data = await checkAnswer();
-          console.log('data from the mutation is', data)
+          {/* console.log('data from the mutation is', data) */}
           await this.clearState(data.data.checkAnswer);
+          this.forceUpdate();
+          this.setState({germanWord: 'test'})
 
 
         }}>
@@ -115,7 +123,6 @@ class LanguageCard extends Component {
         </fieldset></form>)
       }}
     </Mutation>
-        {/* <LanguageCardCheckAnswer /> */}
         
       </div>
     );
