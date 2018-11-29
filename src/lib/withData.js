@@ -17,7 +17,7 @@ function createClient({ headers }) {
       }
     }
   })
-  console.log('token is ', token)
+  // console.log('token is ', token)
 
   return new ApolloClient({
     uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,

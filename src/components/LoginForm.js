@@ -40,17 +40,29 @@ class LoginForm extends Component {
 
     render() {
 
+      {/* <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={data => {
+  localStorage.setItem("Authorization", data.data.login)
+  this.setState({login: data.data.login})
+  Router.push('/learn-german')
+}}> 
+{(login) => {
+  return (<form method='post' onSubmit={e => {
+      e.preventDefault();
+      login()
+      }}>
+ */}
+
     return (
-      <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
-        {(login, {loading, error, data }) => {    
+      <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={data => {
+        localStorage.setItem("Authorization", data.data.login)
+        this.setState({login: data.data.login})
+        Router.push('/learn-german')
+      }}> 
+        {(login) => {    
 
       return (<form method='post' onSubmit={async (e) => {
           e.preventDefault();
-          const data = await login();
-          await localStorage.setItem("Authorization", data.data.login)
-          await this.setState({login: data.data.login})
-          await Router.push('/learn-german')
-
+          login();
         }}>
 
         <fieldset disabled={loading} aria-busy={loading}>

@@ -31,16 +31,6 @@ class LanguageCard extends Component {
     germanAnswer: '',
   }
 
-  // componentDidMount() {
-  //   const token = storageCheck();
-    
-  //   if (!token) {
-  //     return Router.push('/login');
-  //   }
-
-    
-  // }
-
   componentWillMount() {
     try {
       // The problem was here
@@ -74,7 +64,8 @@ class LanguageCard extends Component {
   loadQuery = (variables) => {
     return (
         <Query query={QUESTION_QUERY}>
-          {({error, loading, data}) => {
+          {({error, loading, data, refetch}) => {
+            refetch();
             console.log('Query is running', data)
             if(error) return <p>Error!</p>
             if(loading) return <p>Loading...</p>
