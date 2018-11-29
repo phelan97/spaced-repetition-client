@@ -48,7 +48,7 @@ class LoginForm extends Component {
           e.preventDefault();
           const data = await login();
           localStorage.setItem("Authorization", data.data.login)
-          this.setState({login: data.data.login})
+          await this.setState({login: data.data.login})
           Router.push('/learn-german')
 
         }}>

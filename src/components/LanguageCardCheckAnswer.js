@@ -26,7 +26,7 @@ class LanguageCardCheckAnswer extends Component {
         return (<form method='post' onSubmit={async (e) => {
           e.preventDefault();
           const data = checkAnswer();
-          console.log(data)
+          console.log('data from the mutation is', data)
 
         }}>
         <fieldset disabled={loading} aria-busy={loading}>
