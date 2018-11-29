@@ -73,15 +73,15 @@ class LoginForm extends Component {
  */}
 
     return (
-      <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={data => {</form>
-        localStorage.setItem("Authorization", data.data.login)
-        this.setState({login: data.data.login})
+      <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={async data => {
+        console.log(data)
+        await localStorage.setItem("Authorization", data.login)
+        await this.setState({login: data.login})
         Router.push('/learn-german')
       }}> 
-        {(login) => {    
+        {(login, { loading, error }) => {    
 
       return (
-        <React.Fragment>
         <form method='post' onSubmit={async (e) => {
           e.preventDefault();
           login();
@@ -112,9 +112,9 @@ class LoginForm extends Component {
               onChange={this.saveToState} />
               <button type='submit'>Log in!</button>
             </fieldset>
+            {style}
           </form>
-          {style}
-        </React.Fragment>
+          
         )
         }}
         </Mutation>
