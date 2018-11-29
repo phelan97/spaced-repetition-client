@@ -10,7 +10,6 @@ const LearnGerman = () => {
   return (
     <div>
       {/* <PleaseLogin> */}
-        <p>Learn German page</p>
         <LanguageCard />
       {/* </PleaseLogin> */}
     </div>

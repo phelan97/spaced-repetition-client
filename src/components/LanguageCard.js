@@ -57,10 +57,7 @@ class LanguageCard extends Component {
   render() {
     return (
       <div>
-        <p>This is where the Language Card stuff is going to go.</p>
-        <p>Should look like props.germanWord, then input field, then if button is clicked, 
-          it shows the english word</p>
-        <br />
+        
         <Query query={QUESTION_QUERY}>
           {({error, loading, data, refetch}) => {
             console.log('Query is running', data)
