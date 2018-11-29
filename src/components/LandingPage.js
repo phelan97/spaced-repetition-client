@@ -11,11 +11,26 @@ const style = <style jsx>{`
     width: 100%;
   }
   .signup-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     background-color: blue;
     height: 200px;
     width: 100%;
     top: -30px;
+    color: white;
+    text-align: center;
+  }
+  .signup-container p {
+    margin-bottom: 10px;
+  }
+  .signup-container button {
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid white;
+    font-weight: 600;
+    padding: 10px 20px;
   }
   .main-content {
     padding-left: 20vw;
@@ -30,7 +45,7 @@ class LandingPage extends Component {
       <React.Fragment>
         <section>
           <div className="main-content">
-            <p>This is the landing page Component</p>
+            <h1>This is the landing page Component</h1>
           </div>
           <div>
             <p>Content here (set within a div container)</p>
@@ -38,7 +53,10 @@ class LandingPage extends Component {
           <div className="background-transition"></div>
         </section>
         <section className="signup-block">
-          <p>Sign up stuff</p>
+          <div className="signup-container">
+            <p>Sign up now!</p>
+            <button>Sign up</button>
+          </div>
         </section>
         {style}
       </React.Fragment>
