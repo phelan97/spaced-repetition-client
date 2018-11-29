@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './Errors';
-import { ApolloConsumer } from 'react-apollo';
 import Router from 'next/router'
 
 
@@ -14,6 +13,29 @@ const LOGIN_MUTATION = gql`
   }
 `
 // TODO: Refactor this into Login or Signup! 
+
+const style = <style jsx>{`
+  .login-container {
+    margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 80%;
+  }
+
+  form {
+    display: inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  input {
+    display: block;
+    padding: 3px;
+    border: none;
+  }
+`}</style>
 
 class LoginForm extends Component {
   state = {
@@ -38,53 +60,56 @@ class LoginForm extends Component {
   //   />
   // )}
 
+
     render() {
 
     return (
-      <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
-        {(login, {loading, error, data }) => {    
+      <React.Fragment className="login-container">
+        <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
+          {(login, {loading, error, data }) => {    
 
-      return (<form method='post' onSubmit={async (e) => {
-          e.preventDefault();
-          const data = await login();
-          localStorage.setItem("Authorization", data.data.login)
-          this.setState({login: data.data.login})
-          Router.push('/learn-german')
+        return (
+        <div className="login-container">
+          <form method='post' onSubmit={async (e) => {
+              e.preventDefault();
+              const data = await login();
+              localStorage.setItem("Authorization", data.data.login)
+              this.setState({login: data.data.login})
+              Router.push('/learn-german')
 
-        }}>
+            }}>
 
-        <fieldset disabled={loading} aria-busy={loading}>
-          <h2>Login to Your Account</h2>
-          <Error error={error} />
-         
-          <label htmlFor="email">
-            Email
-          </label>
-          <input 
-          type='email' 
-          name='email' 
-          placeholder='email' 
-          value={this.state.email}
-          onChange={this.saveToState} />
-          <br />
-          <label htmlFor="password">
-            Password
-          </label>
-          <input 
-          type='password' 
-          name='password' 
-          placeholder='password' 
-          value={this.state.password}
-          onChange={this.saveToState} />
-          <br />
-          <button type='submit'>Login!</button>
-        </fieldset>
-
-        
-      </form>)
-         
+            <fieldset disabled={loading} aria-busy={loading}>
+              <legend>Log in to your account</legend>
+              <Error error={error} />
+            
+              <label htmlFor="email">
+                Email
+              </label>
+              <input 
+              type='email' 
+              name='email' 
+              placeholder='Email' 
+              value={this.state.email}
+              onChange={this.saveToState} />
+              <label htmlFor="password">
+                Password
+              </label>
+              <input 
+              type='password' 
+              name='password' 
+              placeholder='Password' 
+              value={this.state.password}
+              onChange={this.saveToState} />
+              <button type='submit'>Log in!</button>
+            </fieldset>
+        </form>
+        {style}
+        </div>
+        )
         }}
-      </Mutation>
+        </Mutation>
+      </React.Fragment>
     );
   }
 
