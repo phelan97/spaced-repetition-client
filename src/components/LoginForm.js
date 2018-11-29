@@ -73,44 +73,45 @@ class LoginForm extends Component {
  */}
 
     return (
-        <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
-          {(login, {loading, error, data }) => {    
+      <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={data => {</form>
+        localStorage.setItem("Authorization", data.data.login)
+        this.setState({login: data.data.login})
+        Router.push('/learn-german')
+      }}> 
+        {(login) => {    
 
-        return (
-          <React.Fragment>
-            <form method='post' onSubmit={async (e) => {
-                e.preventDefault();
-                const data = await login();
-                localStorage.setItem("Authorization", data.data.login)
-                this.setState({login: data.data.login})
-                Router.push('/learn-german')
+      return (
+        <React.Fragment>
+        <form method='post' onSubmit={async (e) => {
+          e.preventDefault();
+          login();
+        }}>
+        
 
-              }}>
-
-              <fieldset disabled={loading} aria-busy={loading}>
-                <legend>Log in to your account</legend>
-                <Error error={error} />
-              
-                <label htmlFor="email">
-                  Email
-                </label>
-                <input 
-                type='email' 
-                name='email' 
-                placeholder='Email' 
-                value={this.state.email}
-                onChange={this.saveToState} />
-                <label htmlFor="password">
-                  Password
-                </label>
-                <input 
-                type='password' 
-                name='password' 
-                placeholder='Password' 
-                value={this.state.password}
-                onChange={this.saveToState} />
-                <button type='submit'>Log in!</button>
-              </fieldset>
+            <fieldset disabled={loading} aria-busy={loading}>
+              <legend>Log in to your account</legend>
+              <Error error={error} />
+            
+              <label htmlFor="email">
+                Email
+              </label>
+              <input 
+              type='email' 
+              name='email' 
+              placeholder='Email' 
+              value={this.state.email}
+              onChange={this.saveToState} />
+              <label htmlFor="password">
+                Password
+              </label>
+              <input 
+              type='password' 
+              name='password' 
+              placeholder='Password' 
+              value={this.state.password}
+              onChange={this.saveToState} />
+              <button type='submit'>Log in!</button>
+            </fieldset>
           </form>
           {style}
         </React.Fragment>
