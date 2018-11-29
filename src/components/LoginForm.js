@@ -16,11 +16,14 @@ const LOGIN_MUTATION = gql`
 
 const style = <style jsx>{`
   .login-container {
+    background-color: white;
     margin-top: 45px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     width: 80%;
+    box-shadow: 1px 1px #ccc;
+    border-radius: 2px;
   }
 
   form {
@@ -30,11 +33,16 @@ const style = <style jsx>{`
     margin-right: auto;
 
   }
-  input {
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
     display: block;
     padding: 3px;
     border: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: 2px solid gray;
   }
+  input
 `}</style>
 
 class LoginForm extends Component {
