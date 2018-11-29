@@ -15,17 +15,6 @@ const LOGIN_MUTATION = gql`
 // TODO: Refactor this into Login or Signup! 
 
 const style = <style jsx>{`
-  .login-container {
-    background-color: white;
-    margin-top: 45px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 80%;
-    box-shadow: 1px 1px #ccc;
-    border-radius: 2px;
-  }
-
   form {
     display: inline-block;
     text-align: left;
@@ -72,52 +61,50 @@ class LoginForm extends Component {
     render() {
 
     return (
-      <React.Fragment className="login-container">
         <Mutation mutation={LOGIN_MUTATION} variables={this.state}>
           {(login, {loading, error, data }) => {    
 
         return (
-        <div className="login-container">
-          <form method='post' onSubmit={async (e) => {
-              e.preventDefault();
-              const data = await login();
-              localStorage.setItem("Authorization", data.data.login)
-              this.setState({login: data.data.login})
-              Router.push('/learn-german')
+          <React.Fragment>
+            <form method='post' onSubmit={async (e) => {
+                e.preventDefault();
+                const data = await login();
+                localStorage.setItem("Authorization", data.data.login)
+                this.setState({login: data.data.login})
+                Router.push('/learn-german')
 
-            }}>
+              }}>
 
-            <fieldset disabled={loading} aria-busy={loading}>
-              <legend>Log in to your account</legend>
-              <Error error={error} />
-            
-              <label htmlFor="email">
-                Email
-              </label>
-              <input 
-              type='email' 
-              name='email' 
-              placeholder='Email' 
-              value={this.state.email}
-              onChange={this.saveToState} />
-              <label htmlFor="password">
-                Password
-              </label>
-              <input 
-              type='password' 
-              name='password' 
-              placeholder='Password' 
-              value={this.state.password}
-              onChange={this.saveToState} />
-              <button type='submit'>Log in!</button>
-            </fieldset>
-        </form>
-        {style}
-        </div>
+              <fieldset disabled={loading} aria-busy={loading}>
+                <legend>Log in to your account</legend>
+                <Error error={error} />
+              
+                <label htmlFor="email">
+                  Email
+                </label>
+                <input 
+                type='email' 
+                name='email' 
+                placeholder='Email' 
+                value={this.state.email}
+                onChange={this.saveToState} />
+                <label htmlFor="password">
+                  Password
+                </label>
+                <input 
+                type='password' 
+                name='password' 
+                placeholder='Password' 
+                value={this.state.password}
+                onChange={this.saveToState} />
+                <button type='submit'>Log in!</button>
+              </fieldset>
+          </form>
+          {style}
+        </React.Fragment>
         )
         }}
         </Mutation>
-      </React.Fragment>
     );
   }
 
