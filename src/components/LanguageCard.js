@@ -7,6 +7,23 @@ import storageCheck from '../lib/storageCheck';
 import { Query, Mutation } from 'react-apollo';
 import LanguageCardCheckAnswer from './LanguageCardCheckAnswer';
 
+const ShowComponent = (props) => {
+  return (
+    <div>
+      <p>
+        {props.correctAnswer ? 'You were right!' : 'You were wrong!'}
+      </p>
+      <style jsx>{`
+          p {
+            color: #021647;
+            margin-top: 20px;
+          }
+
+          `}</style>
+    </div>
+  );
+};
+
 const QUESTION_QUERY = gql`
   query {
     question {
@@ -106,7 +123,17 @@ class LanguageCard extends Component {
                         
                       } else {
                         console.log("in else!")
-                        this.setState({germanAnswer: wordGuess});
+                        if (wordGuess === this.state.germanWord) {
+                          this.setState({
+                            germanAnswer: wordGuess,
+                            correctAnswer: true
+                          });
+                        } else {
+                          this.setState({germanAnswer: wordGuess,
+                            correctAnswer: false});
+                        }
+                        
+
                       }
 
                       this.setState({feedbackState: !this.state.feedbackState})
@@ -122,7 +149,8 @@ class LanguageCard extends Component {
                       </div>
 
                       <Error error={error} />
-                      {this.state.feedbackState ? null : <input 
+
+                      {this.state.feedbackState ? <ShowComponent correctAnswer={this.state.correctAnswer}/> : <input 
                         type='text' 
                         name='wordGuess' 
                         placeholder='German word is...' 
