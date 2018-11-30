@@ -1,31 +1,55 @@
 import React, { Component } from 'react';
-import myImg from './static/wide_hero.svg';
+import myImg from './static/wide_heroSmall.svg';
 
 class LandingPage extends Component {
   render() {
     return (
+      <React.Fragment>
       <div className='hero'>
+        <div className="heroImg">
+          <img src={myImg} />
+        </div>
         
-        <img src={myImg} />
-        <h1>Relax - learning German just got easy</h1>
-        <h2>Spaced repetition software to learn German</h2>
+        <div className='heroWords'>
+          <h1>Relax - learning German just got easy</h1>
+          <h2>Spaced repetition software to learn German</h2>
 
-        <button>Sign Up</button> 
-
-        <h2>At your own pace</h2>
-        <h2>As quick as you want</h2>
-        <h2>Programs prebuilt for you</h2>
-
-        <h1>Start learning German, today!</h1>
-        <button>Sign Up</button>
+          <button>Sign Up</button> 
+        </div>
 
         <style jsx>{`
           img {
-            width: 60vw;
+            width: 35vw;
           }
 
           .hero h1, .hero p, .hero h2 {
             color: #021647;
+          }
+
+          .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            grid-column-gap: 3vw;
+            grid-row-gap: 6vh;
+
+          }
+
+          .heroSpacer {
+            flex: 5;
+          }
+
+          .heroImg {
+            
+          }
+
+          .heroWords {
+            display: flex;
+            flex: 4;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            align-self: center;
           }
 
           .hero h1 {
@@ -39,6 +63,7 @@ class LandingPage extends Component {
             font-size: 32px;
             line-height: 44px;
             margin-bottom: 40px;
+            margin-top: 30px;
           }
 
           button {
@@ -52,12 +77,68 @@ class LandingPage extends Component {
             cursor: pointer;
             display: inline-block;
             text-decoration: none;
+            width: 120px;
+            height: 3rem;
+          }
+
+          .informational {
+            grid-column: 1 / span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto auto;
+          }
+
+          .informational h2:nth-child(1) {
+            grid-row: 2;
+            grid-column: 1;
+            justify-self: center;
+            align-self: center;
+          }
+
+          .informational h2:nth-child(2) {
+            grid-row: 1;
+            grid-column: 2;
+            justify-self: center;
+            align-self: center;
+          }
+
+          .informational h2:nth-child(3) {
+            grid-row: 2;
+            grid-column: 3;
+            justify-self: center;
+            align-self: center;
+          }
+
+          .informational h1 {
+            grid-row: 3;
+            grid-column: 1/ span 6;
+            justify-self: center;
+            margin-bottom: 40px;
+          }
+
+          .informational button {
+            grid-row: 4;
+            grid-column: 1 / span 6;
+            justify-self: center;
           }
 
   
 
         `}</style>
+
+        <div className='informational'>
+          <h2>At your own pace</h2>
+          <h2>As quick as you want</h2>
+          <h2>Programs prebuilt for you</h2>
+
+          <h1>Start learning German, today!</h1>
+          <button>Sign Up</button>
+
+        
+        </div>
       </div>
+      
+      </React.Fragment>
     );
   }
 }
