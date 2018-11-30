@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import NavBar from './NavBar'
 
 class Header extends Component {
   render() {
     return (
       <header>
-        <h1>Lernen Sie Deutsch! (Learn German)</h1>
+        <Link href="/"><a className="header-text">Lernen Sie Deutsch! (Learn German)</a></Link>
         <NavBar />
-        
         <style jsx>{`
 header {
   display: flex;
@@ -18,10 +18,11 @@ header {
   align-items: center;
 }
 
-h1 {
+.header-text {
   color: #5F9267;
   font-size: 1.5rem;
   font-weight: 600;
+  text-decoration: none;
 }
 
 `}</style>

@@ -24,7 +24,6 @@ const NavBar = () => {
   return (
     <div className='nav-container'>
     <ul className="nav-links">
-      <li><Link href='/'><a>Main</a></Link></li>
       {authToken ? (
         <React.Fragment>
           <li>
