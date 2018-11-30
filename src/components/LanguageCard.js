@@ -68,12 +68,12 @@ class LanguageCard extends Component {
               return <p>Error!</p>
             }
             {/* if(loading) return <p> </p> */}
-            if(!data.question) return <p>No data found.</p>
+            if(!data.question) return <p></p>
             return (
               <React.Fragment>
                 <section className="wordContainer">
                   <h2 className='englishWordLabel'>English:</h2>
-                  <p className='englishWord'>{data.question.englishWord}</p>
+                  <h2 className='englishWord'>{data.question.englishWord}</h2>
                   <Mutation mutation={CHECK_ANSWER} onCompleted={data => {
                     refetch();
                     this.clearState();
@@ -92,7 +92,6 @@ class LanguageCard extends Component {
                     }}>
                       <fieldset disabled={loading} aria-busy={loading}>
                         
-                          <h2>What is the German word for this English word?</h2>
                           <Error error={error} />
                           <h2>German</h2>
                           <input 
@@ -108,11 +107,78 @@ class LanguageCard extends Component {
                     </form>)
                   }}
                 
-                  </Mutation>
-                </section>
+                  </Mutation> 
+
+                  
+                  </section>
               </React.Fragment>)
           }}
         </Query>      
+        <style jsx>{`
+          h1, p, h2 {
+            color: #021647;
+          }
+
+          .wordContainer {
+            display: flex;
+            flex: 4;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            width: 60vw;
+            height: auto;
+            padding-bottom: 20px;
+          }
+
+          h1 {
+            font-size: 48px;
+            line-height: 55px;
+            margin: 0px;
+            margin-top: 40px;
+          }
+
+          h2 {
+            font-size: 32px;
+            line-height: 44px;
+            margin-bottom: 40px;
+            margin-top: 30px;
+          }
+
+          button {
+            background-color: #2E65DC;
+            font-family: avertaBold;
+            color: #F7EDE3 !important;
+            font-size: 16px;
+            padding: 6px 18px;
+            box-shadow: 0px 4px 0 0 #DCD4CC;
+            border: 3px solid #2E65DC;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            width: 120px;
+            height: 3rem;
+          }
+
+          input {
+            outline: none;
+            width: 100%;
+            display: block;
+            padding: 3px;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+            border-bottom: 2px solid gray;
+            margin-bottom: 10px;
+            background-color: rgb(250, 255, 189);
+            background-image: none;
+            color: rgb(0, 0, 0);
+          }
+
+          input:focus {
+            border-bottom: 2px solid blue;
+            transition: 1s;
+
+        `}</style>
       </div>
     );
   };
