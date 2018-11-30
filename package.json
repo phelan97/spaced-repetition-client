@@ -12,6 +12,7 @@
     "graphql": "^14.0.2",
     "jwt-decode": "^2.2.0",
     "next": "^7.0.2-canary.29",
+    "next-images": "^1.0.1",
     "next-with-apollo": "^3.3.0",
     "react": "^16.6.3",
     "react-apollo": "^2.3.2",
