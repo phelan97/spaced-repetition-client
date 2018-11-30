@@ -14,6 +14,36 @@ const SIGNUP_MUTATION = gql`
       first: $firstname, last: $lastname ) 
   }
 `
+const style = <style jsx>{`
+  form {
+    display: inline-block;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  form legend {
+    text-align: center;
+  }
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    outline: none;
+    width: 100%;
+    display: block;
+    padding: 3px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+  }
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="text"]:focus {
+    border-bottom: 2px solid blue;
+    transition: 1s;
+  }
+`}</style>
 
 class RegistrationForm extends Component {
   state = {
@@ -37,52 +67,47 @@ class RegistrationForm extends Component {
           signup();
         }}>
         <fieldset disabled={loading} aria-busy={loading}>
-          <h2>Signup for an Account</h2>
+          <legend>Sign up for an account</legend>
           <Error error={error} />
-          <label htmlFor="firstname">
+          {/* <label htmlFor="firstname">
             First Name
-          </label>
+          </label> */}
           <input 
             type='text' 
             name='firstname' 
-            placeholder='firstname' 
+            placeholder='First name' 
             value={this.state.firstname}
             onChange={this.saveToState} />
-          <br />
-          <label htmlFor="lastname">
+          {/* <label htmlFor="lastname">
             Last Name
-          </label>
+          </label> */}
           <input 
             type='text' 
             name='lastname' 
-            placeholder='lastname' 
+            placeholder='Last name' 
             value={this.state.lastname}
             onChange={this.saveToState} />
-          <br />
-          <label htmlFor="email">
+          {/* <label htmlFor="email">
             Email
-          </label>
+          </label> */}
           <input 
           type='email' 
           name='email' 
-          placeholder='email' 
+          placeholder='Email' 
           value={this.state.email}
           onChange={this.saveToState} />
-          <br />
-          <label htmlFor="password">
+          {/* <label htmlFor="password">
             Password
-          </label>
+          </label> */}
           <input 
           type='password' 
           name='password' 
-          placeholder='password' 
+          placeholder='Password' 
           value={this.state.password}
           onChange={this.saveToState} />
-          <br />
-          <button type='submit'>Sign Up!</button>
+          <button type='submit'>Sign up!</button>
         </fieldset>
-
-        
+        {style}
       </form>)
          
         }}

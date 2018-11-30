@@ -11,7 +11,6 @@ const style = <style jsx>{`
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 80%;
     box-shadow: 1px 1px #ccc;
     border-radius: 2px;
     background-color: white;
