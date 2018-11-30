@@ -29,6 +29,7 @@ class LanguageCard extends Component {
   state = {
     wordGuess: '',
     germanAnswer: '',
+    feedbackState: false
   }
 
   componentDidMount() {
@@ -69,46 +70,66 @@ class LanguageCard extends Component {
             }
             {/* if(loading) return <p> </p> */}
             if(!data.question) return <p></p>
+            if(this.state.germanWord !== data.question.germanWord) {
+              this.setState({germanWord: data.question.germanWord});
+            }
             return (
               <React.Fragment>
                 <section className="wordContainer">
-                  <h2 className='englishWordLabel'>English:</h2>
+                  <h2 className='englishWordLabel'>English</h2>
                   <div className='englishWord container'>
                     <h2 className='englishWord word'>{data.question.englishWord}</h2>
                   </div> 
                   <Mutation mutation={CHECK_ANSWER} onCompleted={data => {
                     refetch();
                     this.clearState();
-                    this.setState({germanWord: 'test'});
+                    {/* this.setState({germanWord: ''}); */}
+                    this.setState({feedbackState: true})
                   }}>
                   {(checkAnswer, {error}) => {    
-                    return (<form method='post' onSubmit={e => {
+                    return (<form id='germanForm' method='post' onSubmit={async e => {
                       {/* console.log('the state is', this.state) */}
                       e.preventDefault();
-                      checkAnswer({variables: {
-                        germanWord: data.question.germanWord, 
-                        englishWord:  data.question.englishWord,
-                        germanAnswer: e.currentTarget.wordGuess.value
-                      }});
-                      {/* console.log('data from the mutation is', data) */}
+                      let wordGuess;
+
+                      if (e.currentTarget.wordGuess) {
+                        wordGuess = e.currentTarget.wordGuess.value;
+                      } 
+                      
+                      document.getElementById("germanForm").reset();
+                      if (this.state.feedbackState === true) {
+                        console.log('firing mutation')
+                        this.setState({feedbackState: !this.state.feedbackState})
+                        await checkAnswer({variables: {
+                          germanAnswer: this.state.germanAnswer
+                        }});
+                        
+                      } else {
+                        console.log("in else!")
+                        this.setState({germanAnswer: wordGuess});
+                      }
+
+                      this.setState({feedbackState: !this.state.feedbackState})
+                      
+                      
+                      
+            
                     }}>
-                      
+
+                      <h2>German</h2>
+                      <div className='germanWord container'>
+                        <h2 className='germanWord word'>{this.state.feedbackState ? this.state.germanWord : null}</h2>
+                      </div>
+
+                      <Error error={error} />
+                      {this.state.feedbackState ? null : <input 
+                        type='text' 
+                        name='wordGuess' 
+                        placeholder='German word is...' 
+                      />}
+                      <br />
+                      <button type='submit'>{this.state.feedbackState ? "Got It!" : "Am I Right?"}</button>
                         
-                          <Error error={error} />
-                          <h2>German</h2>
-                          <div className='germanWord container'>
-                            <h2 className='germanWord word'></h2>
-                          </div>
-                          <input 
-                            type='text' 
-                            name='wordGuess' 
-                            placeholder='German word is...' 
-                          />
-                          <br />
-                          <button type='submit'>Am I right?</button>
-                        
-                        
-                      
                     </form>)
                   }}
                 
@@ -117,7 +138,8 @@ class LanguageCard extends Component {
                   </section>
               </React.Fragment>)
           }}
-        </Query>      
+        </Query>  
+
         <style jsx>{`
           h1, p, h2 {
             color: #021647;
@@ -155,7 +177,7 @@ class LanguageCard extends Component {
             font-size: 32px;
             line-height: 44px;
             margin-bottom: 10px;
-            margin-top: 50px;
+            margin-top: 35px;
           }
 
           button {

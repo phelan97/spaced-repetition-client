@@ -17,23 +17,19 @@ const DisplayError = ({ error }) => {
   }
   return (
     <div>
-      <p data-test="graphql-error">
-        <strong>Shoot!</strong>
+      <p data-test="graphql-error" className='error'>
         {error.message.replace('GraphQL error: ', '')}
-      </p>
-    </div>
-  );
-  <style jsx>{`
-      p {
+        <style jsx>{`
+      .error {
         color: "red";
       }
-
-      ul {
-        padding: 0;
-      }
-
       
     `}</style>
+      </p>
+      
+    </div>
+  );
+  
 };
 
 // DisplayError.defaultProps = {
