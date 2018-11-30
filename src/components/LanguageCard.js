@@ -62,45 +62,54 @@ class LanguageCard extends Component {
           {({error, loading, data, refetch}) => {
             console.log('Query is running', data)
             if(error) {
-              this.clearState();
+              {/* this.clearState(); */}
+              setTimeout(() => {}, 1000);
+              refetch();
               return <p>Error!</p>
             }
             {/* if(loading) return <p> </p> */}
             if(!data.question) return <p>No data found.</p>
             return (
               <React.Fragment>
-                <p className='englishWord'>{data.question.englishWord}</p>
-                <Mutation mutation={CHECK_ANSWER} onCompleted={data => {
-                  refetch();
-                  this.clearState();
-                  this.setState({germanWord: 'test'});
-                }}>
-                {(checkAnswer, {error}) => {    
-                  return (<form method='post' onSubmit={e => {
-                    {/* console.log('the state is', this.state) */}
-                    e.preventDefault();
-                    checkAnswer({variables: {
-                      germanWord: data.question.germanWord, 
-                      englishWord:  data.question.englishWord,
-                      germanAnswer: e.currentTarget.wordGuess.value
-                    }});
-                    {/* console.log('data from the mutation is', data) */}
+                <section className="wordContainer">
+                  <h2 className='englishWordLabel'>English:</h2>
+                  <p className='englishWord'>{data.question.englishWord}</p>
+                  <Mutation mutation={CHECK_ANSWER} onCompleted={data => {
+                    refetch();
+                    this.clearState();
+                    this.setState({germanWord: 'test'});
                   }}>
-                    <fieldset disabled={loading} aria-busy={loading}>
-                      <h2>What is the English word for this German word?</h2>
-                      <Error error={error} />
-                      <label htmlFor="wordGuess"></label>
-                      <input 
-                      type='text' 
-                      name='wordGuess' 
-                      placeholder='English word is...' 
-                      />
-                      <br />
-                      <button type='submit'>Am I right?</button>
-                    </fieldset>
-                  </form>)
-                }}
-                </Mutation>
+                  {(checkAnswer, {error}) => {    
+                    return (<form method='post' onSubmit={e => {
+                      {/* console.log('the state is', this.state) */}
+                      e.preventDefault();
+                      checkAnswer({variables: {
+                        germanWord: data.question.germanWord, 
+                        englishWord:  data.question.englishWord,
+                        germanAnswer: e.currentTarget.wordGuess.value
+                      }});
+                      {/* console.log('data from the mutation is', data) */}
+                    }}>
+                      <fieldset disabled={loading} aria-busy={loading}>
+                        
+                          <h2>What is the German word for this English word?</h2>
+                          <Error error={error} />
+                          <h2>German</h2>
+                          <input 
+                            type='text' 
+                            name='wordGuess' 
+                            placeholder='German word is...' 
+                          />
+                          <br />
+                          <button type='submit'>Am I right?</button>
+                        
+                        
+                      </fieldset>
+                    </form>)
+                  }}
+                
+                  </Mutation>
+                </section>
               </React.Fragment>)
           }}
         </Query>      
