@@ -20,18 +20,27 @@ const style = <style jsx>{`
     text-align: left;
     margin-left: auto;
     margin-right: auto;
-
+    width: 100%;
+  }
+  form legend {
+    text-align: center;
   }
   input[type="email"],
   input[type="password"] {
+    outline: none;
     width: 100%;
     display: block;
     padding: 3px;
     border: none;
     background-color: rgba(0, 0, 0, 0);
     border-bottom: 2px solid gray;
+    margin-bottom: 10px;
   }
-  input
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    border-bottom: 2px solid blue;
+    transition: 1s;
+  }
 `}</style>
 
 class LoginForm extends Component {
@@ -88,31 +97,30 @@ class LoginForm extends Component {
         }}>
         
 
-            <fieldset disabled={loading} aria-busy={loading}>
-              <legend>Log in to your account</legend>
-              <Error error={error} />
-            
-              <label htmlFor="email">
-                Email
-              </label>
-              <input 
-              type='email' 
-              name='email' 
-              placeholder='Email' 
-              value={this.state.email}
-              onChange={this.saveToState} />
-              <label htmlFor="password">
-                Password
-              </label>
-              <input 
-              type='password' 
-              name='password' 
-              placeholder='Password' 
-              value={this.state.password}
-              onChange={this.saveToState} />
-              <button type='submit'>Log in!</button>
-            </fieldset>
-            {style}
+              <fieldset disabled={loading} aria-busy={loading}>
+                <legend>Log in to your account</legend>
+                <Error error={error} />
+              
+                {/* <label htmlFor="email">
+                  Email
+                </label> */}
+                <input 
+                type='email' 
+                name='email' 
+                placeholder='Email' 
+                value={this.state.email}
+                onChange={this.saveToState} />
+                {/* <label htmlFor="password">
+                  Password
+                </label> */}
+                <input 
+                type='password' 
+                name='password' 
+                placeholder='Password' 
+                value={this.state.password}
+                onChange={this.saveToState} />
+                <button type='submit'>Log in!</button>
+              </fieldset>
           </form>
           
         )
