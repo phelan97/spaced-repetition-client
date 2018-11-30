@@ -121,8 +121,8 @@ class LoginForm extends Component {
                 onChange={this.saveToState} />
                 <button type='submit'>Log in!</button>
               </fieldset>
+              {style}
           </form>
-          
         )
         }}
         </Mutation>
