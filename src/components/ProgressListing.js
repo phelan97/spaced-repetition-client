@@ -22,20 +22,22 @@ const dummyData = [
   }
 ];
 
-const style = <style jsx>{`
+ const style = <style jsx>{`
   .card-container {
     display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
     grid-gap: 10px;
   }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 600px) {
     .card-container {
-      color: red;
       grid-template-columns: 1fr;
     }
   }
 `}</style>
+
 class ProgressListing extends React.Component {
   render() {
     const cardElements = dummyData.map(answerInfo => {

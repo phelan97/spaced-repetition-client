@@ -13,7 +13,6 @@ const LearnGerman = () => {
       {/* <PleaseLogin> */}
         <LanguageCard />
       {/* </PleaseLogin> */}
-        <ProgressListing />
     </div>
   );
 };

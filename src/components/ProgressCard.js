@@ -5,16 +5,21 @@ const style = <style jsx>{`
     text-align: center;
     background-color: white;
     margin-bottom: 10px;
-    border-radius: 2px;
+    border-radius: 4px;
     box-shadow: 2px 2px #ccc;
+    padding: 0px;
   }
   .question-info {
+    padding: 3px;
+    margin: 5px;
     background-color: rgba(0, 0, 0, 0.25);
     display: block;
-    min-width: 200px; 
+    min-width: 200px;
   }
   .question-accuracy {
-
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 3px;
   }
 `}</style>;
 
@@ -28,10 +33,11 @@ function ProgressCard(props) {
 
   }
 
+  const accuracyText = `Word accuracy: ${Math.round(props.accuracy*100)}%`;
   return (
     <div className="progress-card">
       <span className="question-info">{props.englishWord + ' / ' + props.germanWord}</span>
-      <span className="question-accuracy">{props.accuracy}</span>
+      <span className="question-accuracy">{accuracyText}</span>
       {style}
     </div>
   );
