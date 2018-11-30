@@ -73,7 +73,9 @@ class LanguageCard extends Component {
               <React.Fragment>
                 <section className="wordContainer">
                   <h2 className='englishWordLabel'>English:</h2>
-                  <h2 className='englishWord'>{data.question.englishWord}</h2>
+                  <div className='englishWord container'>
+                    <h2 className='englishWord word'>{data.question.englishWord}</h2>
+                  </div> 
                   <Mutation mutation={CHECK_ANSWER} onCompleted={data => {
                     refetch();
                     this.clearState();
@@ -90,10 +92,13 @@ class LanguageCard extends Component {
                       }});
                       {/* console.log('data from the mutation is', data) */}
                     }}>
-                      <fieldset disabled={loading} aria-busy={loading}>
+                      
                         
                           <Error error={error} />
                           <h2>German</h2>
+                          <div className='germanWord container'>
+                            <h2 className='germanWord word'></h2>
+                          </div>
                           <input 
                             type='text' 
                             name='wordGuess' 
@@ -103,13 +108,12 @@ class LanguageCard extends Component {
                           <button type='submit'>Am I right?</button>
                         
                         
-                      </fieldset>
+                      
                     </form>)
                   }}
                 
                   </Mutation> 
 
-                  
                   </section>
               </React.Fragment>)
           }}
@@ -129,6 +133,15 @@ class LanguageCard extends Component {
             width: 60vw;
             height: auto;
             padding-bottom: 20px;
+            box-shadow: 1px 1px #ccc;
+            border-radius: 2px;
+          }
+          form {
+            width: 100%;
+            display: flex;
+            align-self: center;
+            flex-direction: column;
+            align-items: center;
           }
 
           h1 {
@@ -141,8 +154,8 @@ class LanguageCard extends Component {
           h2 {
             font-size: 32px;
             line-height: 44px;
-            margin-bottom: 40px;
-            margin-top: 30px;
+            margin-bottom: 10px;
+            margin-top: 50px;
           }
 
           button {
@@ -162,22 +175,36 @@ class LanguageCard extends Component {
 
           input {
             outline: none;
-            width: 100%;
+            width: 40%;
+            height: 2.5em;
             display: block;
             padding: 3px;
             border: none;
-            background-color: rgba(0, 0, 0, 0);
+            margin-top: 23px;
+            background-color: rgba(0,0,0,0);
             border-bottom: 2px solid gray;
             margin-bottom: 10px;
-            background-color: rgb(250, 255, 189);
+            background-color: rgb(250,255,189);
             background-image: none;
-            color: rgb(0, 0, 0);
+            color: rgb(0,0,0);
+            text-align: center;
+            font-size: 1.2em;
           }
 
           input:focus {
             border-bottom: 2px solid blue;
             transition: 1s;
+          }
 
+          .word {
+            color: white;
+          }
+
+          .container {
+            background-color: #121C37;
+            width: 50%;
+            height: 120px;
+          }
         `}</style>
       </div>
     );
