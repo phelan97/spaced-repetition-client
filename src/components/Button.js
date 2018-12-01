@@ -55,7 +55,7 @@ const ButtonComp = (props) => {
     vertical-align: middle;
     border-radius: 4px;
 
-        background-color: #121C37;
+        background-color: #2E65DC;
         margin: 16px 32px;
         padding: 0 16px;
         box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
@@ -66,13 +66,13 @@ const ButtonComp = (props) => {
         cursor: pointer;
         box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
         outline: none;
-        background-color: #2E65DC;
+        background-color: #3779FF;
         transition: background-color .28s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .28s cubic-bezier(.4,0,.2,1);
 
       }
 
       button:active {
-        background-color: #3779FF;
+        background-color: #4CACE4;
         box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
         transition: box-shadow .28s cubic-bezier(.4,0,.2,1),-webkit-box-shadow .28s cubic-bezier(.4,0,.2,1);
       }
