@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import myImg from './static/wide_heroSmall.svg';
+import ButtonComp from './Button';
 
 const style = <style jsx>{`
 img {
@@ -121,7 +122,7 @@ class LandingPage extends Component {
           <h1>Relax - learning German just got easy</h1>
           <h2>Spaced repetition software to learn German</h2>
 
-          <button>Sign Up</button> 
+          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
         </div>
 
         <div className='informational'>
@@ -130,7 +131,7 @@ class LandingPage extends Component {
           <h2>Programs prebuilt for you</h2>
 
           <h1>Start learning German, today!</h1>
-          <button>Sign Up</button>
+          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
 
         
         </div>

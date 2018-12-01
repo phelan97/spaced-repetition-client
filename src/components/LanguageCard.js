@@ -78,7 +78,7 @@ class LanguageCard extends Component {
         
         <Query query={QUESTION_QUERY}>
           {({error, loading, data, refetch}) => {
-            console.log('Query is running', data)
+            {/* console.log('Query is running', data) */}
             if(error) {
               {/* this.clearState(); */}
               setTimeout(() => {}, 1000);
@@ -169,8 +169,12 @@ class LanguageCard extends Component {
         </Query>  
 
         <style jsx>{`
+          @import url('https://fonts.googleapis.com/css?family=Text+Me+One');
+
           h1, p, h2 {
             color: #021647;
+            font-family: 'Text Me One', sans-serif;
+
           }
 
           .wordContainer {
