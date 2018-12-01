@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './Errors';
-// import styled from 'styled-components'
+import ButtonComp from './Button';
 
 
 const SIGNUP_MUTATION = gql`
@@ -42,6 +42,12 @@ const style = <style jsx>{`
   input[type="text"]:focus {
     border-bottom: 2px solid blue;
     transition: 1s;
+  }
+  .btnDiv {
+    display: flex;
+    justify-content: center;
+    margin-right: 6px;
+    margin-bottom: 10px;
   }
 `}</style>
 
@@ -105,7 +111,7 @@ class RegistrationForm extends Component {
           placeholder='Password' 
           value={this.state.password}
           onChange={this.saveToState} />
-          <button type='submit'>Sign up!</button>
+          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/learn-german'} className='button' />
         </fieldset>
         {style}
       </form>)

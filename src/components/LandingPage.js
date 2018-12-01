@@ -51,21 +51,6 @@ img {
   margin-top: 30px;
 }
 
-button {
-  background-color: #2E65DC;
-  font-family: avertaBold;
-  color: #F7EDE3 !important;
-  font-size: 16px;
-  padding: 6px 18px;
-  box-shadow: 0px 4px 0 0 #DCD4CC;
-  border: 3px solid #2E65DC;
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-  width: 120px;
-  height: 3rem;
-}
-
 .informational {
   grid-column: 1 / span 2;
   display: grid;
@@ -101,11 +86,12 @@ button {
   margin-bottom: 40px;
 }
 
-.informational button {
+.btnDiv {
   grid-row: 4;
   grid-column: 1 / span 6;
   justify-self: center;
 }
+
 `}</style>
 
 class LandingPage extends Component {
@@ -131,13 +117,11 @@ class LandingPage extends Component {
           <h2>Programs prebuilt for you</h2>
 
           <h1>Start learning German, today!</h1>
-          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
-
-        
+          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
         </div>
 
       </div>
-              {style}
+      {style}
       </React.Fragment>
     );
   }

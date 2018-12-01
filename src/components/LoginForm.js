@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './Errors';
-import Router from 'next/router'
+import Router from 'next/router';
+import ButtonComp from './Button';
 
 
 const LOGIN_MUTATION = gql`
@@ -40,6 +41,13 @@ const style = <style jsx>{`
   input[type="password"]:focus {
     border-bottom: 2px solid blue;
     transition: 1s;
+  }
+
+  .btnDiv {
+    display: flex;
+    justify-content: center;
+    margin-right: 6px;
+    margin-bottom: 10px;
   }
 `}</style>
 
@@ -119,7 +127,7 @@ class LoginForm extends Component {
                 placeholder='Password' 
                 value={this.state.password}
                 onChange={this.saveToState} />
-                <button type='submit'>Log in!</button>
+                <ButtonComp buttonText={'Log In!'} buttonLink={'/learn-german'} />
               </fieldset>
               {style}
           </form>
