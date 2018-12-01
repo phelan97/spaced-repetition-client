@@ -64,7 +64,7 @@ img {
   justify-self: center;
   align-self: center;
   text-align: center;
-  margin-top: -15vh;
+  margin-top: -8vh;
 }
 
 .informational div:nth-child(2) {
@@ -81,7 +81,7 @@ img {
   justify-self: center;
   align-self: center;
   text-align: center;
-  margin-top: -15vh;
+  margin-top: -8vh;
 }
 
 .informational h1 {
@@ -155,7 +155,7 @@ class LandingPage extends Component {
           </div>
           
           <div className='informationalThree'>
-            <h2>Programs prebuilt for you</h2>
+            <h2>Prebuilt programs</h2>
             <hr className='hrThree' />
           </div>
           
