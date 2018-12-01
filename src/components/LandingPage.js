@@ -47,8 +47,8 @@ img {
 .hero h2 {
   font-size: 32px;
   line-height: 44px;
-  margin-bottom: 40px;
-  margin-top: 30px;
+  margin-bottom: 25px;
+  margin-top: 12px;
 }
 
 .informational {
@@ -58,25 +58,30 @@ img {
   grid-template-rows: auto auto auto auto;
 }
 
-.informational h2:nth-child(1) {
+.informational div:nth-child(1) {
   grid-row: 2;
   grid-column: 1;
   justify-self: center;
   align-self: center;
+  text-align: center;
+  margin-top: -15vh;
 }
 
-.informational h2:nth-child(2) {
+.informational div:nth-child(2) {
   grid-row: 1;
   grid-column: 2;
   justify-self: center;
   align-self: center;
+  text-align: center;
 }
 
-.informational h2:nth-child(3) {
+.informational div:nth-child(3) {
   grid-row: 2;
   grid-column: 3;
   justify-self: center;
   align-self: center;
+  text-align: center;
+  margin-top: -15vh;
 }
 
 .informational h1 {
@@ -90,6 +95,33 @@ img {
   grid-row: 4;
   grid-column: 1 / span 6;
   justify-self: center;
+}
+
+hr {
+  border: none;
+  width: 80px;
+  height: 8px;
+}
+
+.hrOne {
+  background: #AFC8B3;
+  -webkit-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+
+.hrTwo {
+  background: #99B2F7;
+  -webkit-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+
+.hrThree {
+  background: #ECC425;
+  -webkit-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  transform: rotate(5deg);
 }
 
 `}</style>
@@ -112,10 +144,21 @@ class LandingPage extends Component {
         </div>
 
         <div className='informational'>
-          <h2>At your own pace</h2>
-          <h2>As quick as you want</h2>
-          <h2>Programs prebuilt for you</h2>
-
+          <div className='informationalOne'>
+            <h2>At your own pace</h2>
+            <hr className='hrOne' />
+          </div>
+          
+          <div className='informationalTwo'>
+            <h2>As quick as you want</h2>
+            <hr className='hrTwo' />
+          </div>
+          
+          <div className='informationalThree'>
+            <h2>Programs prebuilt for you</h2>
+            <hr className='hrThree' />
+          </div>
+          
           <h1>Start learning German, today!</h1>
           <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
         </div>
