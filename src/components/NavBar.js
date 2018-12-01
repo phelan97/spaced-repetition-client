@@ -64,9 +64,17 @@ const NavBar = () => {
         justify-content: space-between;
       }
       a {
-        font-size: 1.2rem;
+        display: inline-block;
+        color: #021647;
+        margin: 0 0 0 50px;
+        padding-bottom: 18px;
+        position: relative;
         text-decoration: none;
-        color: red;
+        top: 18px;
+        font-weight: 700;
+      }
+      a:hover {
+        border-bottom: 5px solid #5F9267;
       }
 
     `}</style>
