@@ -42,6 +42,9 @@ img {
   line-height: 55px;
   margin: 0px;
   margin-top: 40px;
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  justify-self: center;
 }
 
 .hero h2 {
@@ -56,6 +59,7 @@ img {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto auto;
+  margin-top: 8vh;
 }
 
 .informational div:nth-child(1) {
@@ -93,8 +97,12 @@ img {
 
 .btnDiv {
   grid-row: 4;
-  grid-column: 1 / span 6;
+  grid-column: 1 / span 3;
   justify-self: center;
+}
+
+.footer .btnDiv {
+  margin-top: 4vh;
 }
 
 hr {
@@ -122,6 +130,16 @@ hr {
   -webkit-transform: rotate(5deg);
   -ms-transform: rotate(5deg);
   transform: rotate(5deg);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  grid-row: 3;
+  grid-column: 1 / span 2;
+  justify-self: center;
+  align-items: center;
+  margin-top: 5vh;
 }
 
 `}</style>
@@ -158,10 +176,12 @@ class LandingPage extends Component {
             <h2>Prebuilt programs</h2>
             <hr className='hrThree' />
           </div>
-          
+        </div> 
+
+        <footer className='footer'>
           <h1>Start learning German, today!</h1>
           <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
-        </div>
+        </footer>
 
       </div>
       {style}
