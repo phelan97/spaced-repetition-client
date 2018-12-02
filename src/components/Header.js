@@ -23,7 +23,8 @@ header {
   font-size: 1.5rem;
   font-weight: 600;
   text-decoration: none;
-  align-self: flex-end;
+  align-self: center;
+  padding-top: 19px;
 }
 
 `}</style>
