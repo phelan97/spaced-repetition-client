@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import Error from './Errors';
+import Error from './Error';
 import Router from 'next/router';
 import ButtonComp from './Button';
 
@@ -90,21 +90,18 @@ class LoginForm extends Component {
  */}
 
     return (
-      <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={async data => {
-        console.log(data)
-        await localStorage.setItem("Authorization", data.login)
-        await this.setState({login: data.login})
+      <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={data => {
+        console.log('DATA', data);
+        localStorage.setItem("Authorization", data.login)
+        this.setState({login: data.login})
         Router.push('/learn-german')
       }}> 
         {(login, { loading, error }) => {    
-
-      return (
-        <form method='post' onSubmit={async (e) => {
-          e.preventDefault();
-          login();
-        }}>
-        
-
+          return (
+            <form method='post' onSubmit={(e) => {
+              e.preventDefault();
+              login();
+            }}>
               <fieldset disabled={loading} aria-busy={loading}>
                 <legend>Log in to your account</legend>
                 <Error error={error} />

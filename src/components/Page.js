@@ -68,7 +68,6 @@ const style = <style jsx>{`
   }
 `}</style>
 
-
 class Page extends Component {
   
   render() {

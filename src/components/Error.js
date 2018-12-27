@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplayError = ({ error }) => {
+const Error = ({ error }) => {
   if (!error || !error.message) return null;
   if (error.networkError && error.networkError.result && error.networkError.result.errors.length) {
     return error.networkError.result.errors.map((error, i) => (
@@ -40,4 +40,4 @@ const DisplayError = ({ error }) => {
 //   error: PropTypes.object,
 // };
 
-export default DisplayError;
+export default Error;
