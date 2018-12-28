@@ -170,9 +170,9 @@ class LandingPage extends Component {
     return (
       <React.Fragment>
         <section className="hero">
-        <div className="heroImgContainer">
-          <img className="heroImg" src={myImg} />
-        </div>
+          <div className="heroImgContainer">
+            <img className="heroImg" src={myImg} />
+          </div>
           
           <div className='heroWords'>
             <h1>Relax - learning German just got easy</h1>
@@ -182,41 +182,28 @@ class LandingPage extends Component {
           </div>
         </section>
 
-        <div className='hero'>
-        {/* <div className='hero'>
-          <div className="heroImg">
-            <img src={myImg} />
+        <section className='informational'>
+          <div className='informationalOne'>
+            <h2>At your own pace</h2>
+            <hr className='hrOne' />
           </div>
           
-          <div className='heroWords'>
-            <h1>Relax - learning German just got easy</h1>
-            <h2>Spaced repetition software to learn German</h2>
-
-            <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
-          </div> */}
-
-          <div className='informational'>
-            <div className='informationalOne'>
-              <h2>At your own pace</h2>
-              <hr className='hrOne' />
-            </div>
-            
-            <div className='informationalTwo'>
-              <h2>As quick as you want</h2>
-              <hr className='hrTwo' />
-            </div>
-            
-            <div className='informationalThree'>
-              <h2>Prebuilt programs</h2>
-              <hr className='hrThree' />
-            </div>
-
-            <footer className='footer'>
-              <h1>Start learning German, today!</h1>
-              <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
-            </footer>
+          <div className='informationalTwo'>
+            <h2>As quick as you want</h2>
+            <hr className='hrTwo' />
           </div>
-        </div>
+          
+          <div className='informationalThree'>
+            <h2>Prebuilt programs</h2>
+            <hr className='hrThree' />
+          </div>
+        </section>
+
+        <footer className='footer'>
+          <h1>Start learning German, today!</h1>
+          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
+        </footer>
+
         {style}
       </React.Fragment>
     );
