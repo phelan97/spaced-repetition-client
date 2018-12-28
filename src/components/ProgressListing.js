@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {Query} from 'react-apollo';
+import gql from 'graphql-tag';
+import storageCheck from '../lib/storageCheck';
 import ProgressCard from './ProgressCard';
 
 const dummyData = [
@@ -38,21 +41,56 @@ const dummyData = [
   }
 `}</style>
 
-class ProgressListing extends React.Component {
-  render() {
-    const cardElements = dummyData.map(answerInfo => {
-      const numGuesses = answerInfo.numCorrect + answerInfo.numIncorrect;
-      return (<ProgressCard accuracy={answerInfo.numCorrect/numGuesses}
-        englishWord = {answerInfo.englishWord}
-        germanWord = {answerInfo.germanWord}
-      />);
-    })
+const ALL_QUESTIONS_ACCURACY = gql`
+query {
+  question {
+    id
+    englishWord
+    germanWord,
+    numCorrect,
+    numIncorrect
+  }
+}
+`;
 
+class ProgressListing extends Component {
+  componentDidMount() {
+    const token = storageCheck();
+    if (!token) {
+      return Router.push('/login');
+    }
+  }
+
+  render() {
+    // const cardElements = dummyData.map(question => {
+    //   const numGuesses = question.numCorrect + question.numIncorrect;
+    //   return (<ProgressCard accuracy={question.numCorrect/numGuesses}
+    //     englishWord = {question.englishWord}
+    //     germanWord = {question.germanWord}
+    //   />);
+    // })
+
+    let cardElements = <p>temp</p>;
     return (
-      <div className="card-container">
-        {cardElements}
-        {style}
-      </div>
+      <Query query={ALL_QUESTIONS_ACCURACY} onCompleted={data => {
+        console.log(data);
+        cardElements = data.map(question => {
+          const numGuesses = question.numCorrect + question.numIncorrect;
+          return (<ProgressCard accuracy={question.numCorrect/numGuesses}
+            englishWord = {question.englishWord}
+            germanWord = {question.germanWord}
+          />);
+        })
+      }}>
+        {({error, loading, data, refetch}) => {
+          return (
+            <div className="card-container">
+              {cardElements}
+              {style}
+            </div>
+          )
+        }}
+      </Query>
     )
   }
 }
