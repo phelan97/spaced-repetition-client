@@ -10,7 +10,7 @@ const LOGIN_MUTATION = gql`
   mutation LOGIN_MUTATION(
           $email: String!,
           $password: String!) {
-    login(email: $email, password: $password ) 
+    login(email: $email, password: $password )
   }
 `
 // TODO: Refactor this into Login or Signup! 
@@ -53,7 +53,7 @@ const style = <style jsx>{`
 
 class LoginForm extends Component {
   state = {
-    login: false,
+    loggedIn: false,
     firstname: '',
     lastname: '',
     email: '',
@@ -65,6 +65,10 @@ class LoginForm extends Component {
     
   }
 
+  componentDidUpdate(prevProps) {
+    console.log('prevProps', prevProps);
+
+  }
   // {!login && (
   //   <input
   //     value={name}
@@ -88,23 +92,27 @@ class LoginForm extends Component {
       login()
       }}>
  */}
-
+    if(this.state.loggedIn) {
+      Router.push('/learn-german');
+    }
     return (
-      <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={data => {
-        console.log('DATA', data);
-        localStorage.setItem("Authorization", data.login)
-        this.setState({login: data.login})
-        Router.push('/learn-german')
-      }}> 
-        {(login, { loading, error }) => {    
+      <Mutation mutation={LOGIN_MUTATION} variables={{email: this.state.email, password: this.state.password}}
+        update={(cache, {data: {login}}) => {
+          localStorage.setItem("Authorization", login);
+          this.setState({loggedIn: true});
+        }
+      }>
+        {(login) => {    
           return (
             <form method='post' onSubmit={(e) => {
+              console.log('login mutation triggered');
               e.preventDefault();
               login();
             }}>
-              <fieldset disabled={loading} aria-busy={loading}>
+              <fieldset>
+              {/* <fieldset disabled={loading} aria-busy={loading}> */}
                 <legend>Log in to your account</legend>
-                <Error error={error} />
+                {/* <Error error={error} /> */}
               
                 {/* <label htmlFor="email">
                   Email
@@ -124,7 +132,8 @@ class LoginForm extends Component {
                 placeholder='Password' 
                 value={this.state.password}
                 onChange={this.saveToState} />
-                <ButtonComp buttonText={'Log In!'} buttonLink={'/learn-german'} />
+                <button type="submit">Log in</button>
+                {/* <ButtonComp buttonText={'Log In!'} buttonLink={'/learn-german'} /> */}
               </fieldset>
               {style}
           </form>

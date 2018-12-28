@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import gql, { resetCaches } from 'graphql-tag';
-import Error from './Errors';
+import Error from './Error';
 // import { ApolloConsumer } from 'react-apollo';
 import Router from 'next/router'
 import storageCheck from '../lib/storageCheck';

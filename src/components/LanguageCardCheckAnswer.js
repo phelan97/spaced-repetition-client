@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
-import Error from './Errors';
+import Error from './Error';
 
 const CHECK_ANSWER = gql`
   mutation CHECKANSWER(
