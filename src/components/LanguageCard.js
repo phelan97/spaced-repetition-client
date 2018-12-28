@@ -5,6 +5,7 @@ import Error from './Error';
 import Router from 'next/router'
 import storageCheck from '../lib/storageCheck';
 import { Query, Mutation } from 'react-apollo';
+import Link from 'next/link';
 import LanguageCardCheckAnswer from './LanguageCardCheckAnswer';
 
 const ShowComponent = (props) => {
@@ -93,6 +94,7 @@ class LanguageCard extends Component {
             return (
               <React.Fragment>
                 <section className="wordContainer">
+                  <Link href="/stats"><button className='statsButton'>Show stats</button></Link>
                   <h2 className='englishWordLabel'>English</h2>
                   <div className='englishWord container'>
                     <h2 className='englishWord word'>{data.question.englishWord}</h2>
@@ -137,10 +139,6 @@ class LanguageCard extends Component {
                       }
 
                       this.setState({feedbackState: !this.state.feedbackState})
-                      
-                      
-                      
-            
                     }}>
 
                       <h2>German</h2>
@@ -162,6 +160,7 @@ class LanguageCard extends Component {
                   }}
                 
                   </Mutation> 
+
 
                   </section>
               </React.Fragment>)
@@ -189,6 +188,16 @@ class LanguageCard extends Component {
             padding-bottom: 20px;
             box-shadow: 1px 1px #ccc;
             border-radius: 2px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+            position: relative;
+          }
+          .statsButton {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 10px;
           }
           form {
             width: 100%;
@@ -258,6 +267,17 @@ class LanguageCard extends Component {
             background-color: #121C37;
             width: 50%;
             height: 120px;
+          }
+
+          @media only screen and (max-width: 600px) {
+            .wordContainer {
+              width: 90%;
+            }
+
+            body {
+              padding-left: 0;
+              padding-right: 0;
+            }
           }
         `}</style>
       </div>

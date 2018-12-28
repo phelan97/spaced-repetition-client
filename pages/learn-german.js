@@ -12,7 +12,6 @@ const LearnGerman = () => {
       {/* <PleaseLogin> */}
         <LanguageCard />
       {/* </PleaseLogin> */}
-      <Link href="/stats"><button>Show stats</button></Link>
     </div>
   );
 };
