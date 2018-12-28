@@ -142,49 +142,82 @@ hr {
   margin-top: 5vh;
 }
 
+@media only screen and (max-width: 600px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .heroImg {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.heroWords {
+  min-width: 250px;
+}
+.heroImg {
+  display:
+  min-width: 300px;
+}
+.heroImgContainer {
+  text-align: center;
+}
 `}</style>
 
 class LandingPage extends Component {
   render() {
     return (
       <React.Fragment>
-                {style}
-      <div className='hero'>
-        <div className="heroImg">
-          <img src={myImg} />
+        <section className="hero">
+        <div className="heroImgContainer">
+          <img className="heroImg" src={myImg} />
         </div>
-        
-        <div className='heroWords'>
-          <h1>Relax - learning German just got easy</h1>
-          <h2>Spaced repetition software to learn German</h2>
+          
+          <div className='heroWords'>
+            <h1>Relax - learning German just got easy</h1>
+            <h2>Spaced repetition software to learn German</h2>
 
-          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
-        </div>
+            <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
+          </div>
+        </section>
 
-        <div className='informational'>
-          <div className='informationalOne'>
-            <h2>At your own pace</h2>
-            <hr className='hrOne' />
+        <div className='hero'>
+        {/* <div className='hero'>
+          <div className="heroImg">
+            <img src={myImg} />
           </div>
           
-          <div className='informationalTwo'>
-            <h2>As quick as you want</h2>
-            <hr className='hrTwo' />
-          </div>
-          
-          <div className='informationalThree'>
-            <h2>Prebuilt programs</h2>
-            <hr className='hrThree' />
-          </div>
-        </div> 
+          <div className='heroWords'>
+            <h1>Relax - learning German just got easy</h1>
+            <h2>Spaced repetition software to learn German</h2>
 
-        <footer className='footer'>
-          <h1>Start learning German, today!</h1>
-          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
-        </footer>
+            <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
+          </div> */}
 
-      </div>
-      {style}
+          <div className='informational'>
+            <div className='informationalOne'>
+              <h2>At your own pace</h2>
+              <hr className='hrOne' />
+            </div>
+            
+            <div className='informationalTwo'>
+              <h2>As quick as you want</h2>
+              <hr className='hrTwo' />
+            </div>
+            
+            <div className='informationalThree'>
+              <h2>Prebuilt programs</h2>
+              <hr className='hrThree' />
+            </div>
+
+            <footer className='footer'>
+              <h1>Start learning German, today!</h1>
+              <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
+            </footer>
+          </div>
+        </div>
+        {style}
       </React.Fragment>
     );
   }
