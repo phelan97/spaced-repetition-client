@@ -7,17 +7,16 @@ img {
   width: 35vw;
 }
 
-.hero h1, .hero p, .hero h2 {
+main h1, main p, main h2 {
   color: #021647;
 }
 
-.hero {
+main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto auto;
   grid-column-gap: 3vw;
   grid-row-gap: 6vh;
-
 }
 
 .heroSpacer {
@@ -37,7 +36,7 @@ img {
   align-self: center;
 }
 
-.hero h1 {
+main h1 {
   font-size: 48px;
   line-height: 55px;
   margin: 0px;
@@ -47,7 +46,7 @@ img {
   justify-self: center;
 }
 
-.hero h2 {
+main h2 {
   font-size: 32px;
   line-height: 44px;
   margin-bottom: 25px;
@@ -143,7 +142,7 @@ hr {
 }
 
 @media only screen and (max-width: 600px) {
-  .hero {
+  main {
     grid-template-columns: 1fr;
   }
   .heroImg {
@@ -160,7 +159,7 @@ hr {
   display:
   min-width: 300px;
 }
-.heroImgContainer {
+.heroImgContainer, footer {
   text-align: center;
 }
 `}</style>
@@ -169,40 +168,42 @@ class LandingPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <section className="hero">
-          <div className="heroImgContainer">
-            <img className="heroImg" src={myImg} />
-          </div>
-          
-          <div className='heroWords'>
-            <h1>Relax - learning German just got easy</h1>
-            <h2>Spaced repetition software to learn German</h2>
+        <main>
+          <section className="hero">
+            <div className="heroImgContainer">
+              <img className="heroImg" src={myImg} />
+            </div>
+            
+            <div className='heroWords'>
+              <h1>Relax - learning German just got easy</h1>
+              <h2>Spaced repetition software to learn German</h2>
 
-            <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
-          </div>
-        </section>
+              <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} />
+            </div>
+          </section>
 
-        <section className='informational'>
-          <div className='informationalOne'>
-            <h2>At your own pace</h2>
-            <hr className='hrOne' />
-          </div>
-          
-          <div className='informationalTwo'>
-            <h2>As quick as you want</h2>
-            <hr className='hrTwo' />
-          </div>
-          
-          <div className='informationalThree'>
-            <h2>Prebuilt programs</h2>
-            <hr className='hrThree' />
-          </div>
-        </section>
+          <section className='informational'>
+            <div className='informationalOne'>
+              <h2>At your own pace</h2>
+              <hr className='hrOne' />
+            </div>
+            
+            <div className='informationalTwo'>
+              <h2>As quick as you want</h2>
+              <hr className='hrTwo' />
+            </div>
+            
+            <div className='informationalThree'>
+              <h2>Prebuilt programs</h2>
+              <hr className='hrThree' />
+            </div>
+          </section>
 
-        <footer className='footer'>
-          <h1>Start learning German, today!</h1>
-          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
-        </footer>
+          <footer className='footer'>
+            <h1>Start learning German, today!</h1>
+            <ButtonComp buttonText={'Sign Up!'} buttonLink={'/signup'} className='button' />
+          </footer>
+        </main>
 
         {style}
       </React.Fragment>
