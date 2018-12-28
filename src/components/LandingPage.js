@@ -11,20 +11,16 @@ main h1, main p, main h2 {
   color: #021647;
 }
 
-main {
+.hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto);
   grid-column-gap: 3vw;
   grid-row-gap: 6vh;
 }
 
 .heroSpacer {
   flex: 5;
-}
-
-.heroImg {
-  
 }
 
 .heroWords {
@@ -142,7 +138,7 @@ hr {
 }
 
 @media only screen and (max-width: 600px) {
-  main {
+  .hero {
     grid-template-columns: 1fr;
   }
   .heroImg {
