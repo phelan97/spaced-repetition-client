@@ -64,82 +64,52 @@ class LoginForm extends Component {
     this.setState({ [e.target.name]: e.target.value})
     
   }
-
-  componentDidUpdate(prevProps) {
-    console.log('prevProps', prevProps);
-
-  }
-  // {!login && (
-  //   <input
-  //     value={name}
-  //     onChange={e => this.setState({ name: e.target.value })}
-  //     type="text"
-  //     placeholder="Your name"
-  //   />
-  // )}
-
-
-    render() {
-
-      {/* <Mutation mutation={LOGIN_MUTATION} variables={this.state} onCompleted={data => {
-  localStorage.setItem("Authorization", data.data.login)
-  this.setState({login: data.data.login})
-  Router.push('/learn-german')
-}}> 
-{(login) => {
-  return (<form method='post' onSubmit={e => {
-      e.preventDefault();
-      login()
-      }}>
- */}
-    if(this.state.loggedIn) {
-      Router.push('/learn-german');
-    }
-    return (
-      <Mutation mutation={LOGIN_MUTATION} variables={{email: this.state.email, password: this.state.password}}
-        update={(cache, {data: {login}}) => {
-          localStorage.setItem("Authorization", login);
-          this.setState({loggedIn: true});
-        }
-      }>
-        {(login) => {    
-          return (
-            <form method='post' onSubmit={(e) => {
-              console.log('login mutation triggered');
-              e.preventDefault();
-              login();
-            }}>
-              <fieldset>
-              {/* <fieldset disabled={loading} aria-busy={loading}> */}
-                <legend>Log in to your account</legend>
-                {/* <Error error={error} /> */}
-              
-                {/* <label htmlFor="email">
-                  Email
-                </label> */}
-                <input 
-                type='email' 
-                name='email' 
-                placeholder='Email' 
-                value={this.state.email}
-                onChange={this.saveToState} />
-                {/* <label htmlFor="password">
-                  Password
-                </label> */}
-                <input 
-                type='password' 
-                name='password' 
-                placeholder='Password' 
-                value={this.state.password}
-                onChange={this.saveToState} />
-                <button type="submit">Log in</button>
-                {/* <ButtonComp buttonText={'Log In!'} buttonLink={'/learn-german'} /> */}
-              </fieldset>
-              {style}
-          </form>
-        )
-        }}
-        </Mutation>
+  render() {
+  return (
+    <Mutation mutation={LOGIN_MUTATION} variables={{email: this.state.email, password: this.state.password}}
+      update={(cache, {data: {login}}) => {
+        localStorage.setItem("Authorization", login);
+        this.setState({loggedIn: true});
+        Router.push('/learn-german');
+      }
+    }>
+      {(login, {loading, error}) => {    
+        return (
+          <form method='post' onSubmit={(e) => {
+            console.log('login mutation triggered');
+            e.preventDefault();
+            login();
+          }}>
+            <fieldset disabled={loading} aria-busy={loading}>
+              <legend>Log in to your account</legend>
+              <Error error={error} />
+            
+              {/* <label htmlFor="email">
+                Email
+              </label> */}
+              <input 
+              type='email' 
+              name='email' 
+              placeholder='Email' 
+              value={this.state.email}
+              onChange={this.saveToState} />
+              {/* <label htmlFor="password">
+                Password
+              </label> */}
+              <input 
+              type='password' 
+              name='password' 
+              placeholder='Password' 
+              value={this.state.password}
+              onChange={this.saveToState} />
+              <button type="submit">Log in</button>
+              {/* <ButtonComp buttonText={'Log In!'} buttonLink={'/learn-german'} /> */}
+            </fieldset>
+            {style}
+        </form>
+      )
+      }}
+      </Mutation>
     );
   }
 
