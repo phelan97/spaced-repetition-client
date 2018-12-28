@@ -82,8 +82,7 @@ class LanguageCard extends Component {
             {/* console.log('Query is running', data) */}
             if(error) {
               {/* this.clearState(); */}
-              setTimeout(() => {}, 1000);
-              refetch();
+              setTimeout(() => refetch(), 1000);
               return <p>Error!</p>
             }
             {/* if(loading) return <p> </p> */}
