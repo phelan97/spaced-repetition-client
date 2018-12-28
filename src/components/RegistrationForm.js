@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Error from './Error';
+import Router from 'next/router';
 import ButtonComp from './Button';
 
 
@@ -64,11 +65,17 @@ class RegistrationForm extends Component {
   
     render() {
     return (
-      <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
+      <Mutation mutation={SIGNUP_MUTATION} variables={this.state}
+        update={(cache, {data: {signup}}) => {
+          Router.push('/login');
+        }
+      }>
         {(signup, {error, loading}) => {
-          {/* if(error) return `Error ${error}` */}
+          if(error) return <Error error={error} />;
        
-      return (<form method='post' onSubmit={(e) => {
+      return (
+        <form method='post' onSubmit={(e) => {
+          console.log('form submit');
           e.preventDefault();
           signup();
         }}>
@@ -111,7 +118,8 @@ class RegistrationForm extends Component {
           placeholder='Password' 
           value={this.state.password}
           onChange={this.saveToState} />
-          <ButtonComp buttonText={'Sign Up!'} buttonLink={'/learn-german'} className='button' />
+          <button>Sign up!</button>
+          {/* <ButtonComp buttonText={'Sign Up!'} buttonLink={'/learn-german'} className='button' /> */}
         </fieldset>
         {style}
       </form>)

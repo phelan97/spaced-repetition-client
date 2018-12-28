@@ -44,7 +44,7 @@ const NavBar = () => {
               <Link href='/login'><a>Login</a></Link>
             </li>
             <li>
-              <Link href='/signup'><a>Signup</a></Link>
+              <Link href='/signup'><a>Sign up</a></Link>
             </li>
           </React.Fragment>
         )}
