@@ -123,7 +123,6 @@ class LanguageCard extends Component {
                         }});
                         
                       } else {
-                        console.log("in else!")
                         if (wordGuess === this.state.germanWord) {
                           this.setState({
                             germanAnswer: wordGuess,

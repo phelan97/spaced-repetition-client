@@ -6,7 +6,6 @@ const AUTH_TOKEN = "Authorization";
 const NavBar = () => {
   function storage() {
     try {
-      // The problem was here
       const authToken = localStorage.getItem(AUTH_TOKEN)
       if (authToken !== null) {
         return authToken;
@@ -14,7 +13,6 @@ const NavBar = () => {
 
       return false;
   } catch (e) {
-      //console.log(e.message);
       return false;
   }
   };
@@ -48,9 +46,6 @@ const NavBar = () => {
             </li>
           </React.Fragment>
         )}
-
-      
-      
     </ul>
 
     <style jsx>{`
@@ -72,6 +67,7 @@ const NavBar = () => {
         text-decoration: none;
         top: 18px;
         font-weight: 700;
+        cursor: pointer;
       }
       a:hover {
         border-bottom: 5px solid #5F9267;
@@ -80,10 +76,6 @@ const NavBar = () => {
     `}</style>
     </div>
   );
-
-  
 };
-
-
 
 export default NavBar;
