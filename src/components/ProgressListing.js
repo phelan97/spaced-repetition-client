@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Query} from 'react-apollo';
 import gql from 'graphql-tag';
 import storageCheck from '../lib/storageCheck';
@@ -43,7 +43,7 @@ const dummyData = [
 
 const ALL_QUESTIONS_ACCURACY = gql`
 query {
-  question {
+  allQuestions {
     id
     englishWord
     germanWord,
@@ -53,7 +53,7 @@ query {
 }
 `;
 
-class ProgressListing extends Component {
+class ProgressListing extends React.Component {
   componentDidMount() {
     const token = storageCheck();
     if (!token) {
@@ -70,19 +70,27 @@ class ProgressListing extends Component {
     //   />);
     // })
 
-    let cardElements = <p>temp</p>;
+    let cardElements = null;
     return (
       <Query query={ALL_QUESTIONS_ACCURACY} onCompleted={data => {
-        console.log(data);
-        cardElements = data.map(question => {
-          const numGuesses = question.numCorrect + question.numIncorrect;
-          return (<ProgressCard accuracy={question.numCorrect/numGuesses}
-            englishWord = {question.englishWord}
-            germanWord = {question.germanWord}
-          />);
-        })
+          // this.setState({allQuestions: data.allQuestions});
+          console.log('onCompleted data', data);
       }}>
-        {({error, loading, data, refetch}) => {
+        {({data, error, loading}) => {
+          let cardElements = null;
+          if(data.allQuestions) {
+            console.log('DATA', data);
+            cardElements = data.allQuestions.map(question => {
+              return (
+                <ProgressCard key={question.id}
+                  numCorrect={question.numCorrect}
+                  numIncorrect={question.numIncorrect}
+                  englishWord = {question.englishWord}
+                  germanWord = {question.germanWord}
+                />
+              );
+            });
+          }
           return (
             <div className="card-container">
               {cardElements}
