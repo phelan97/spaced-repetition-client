@@ -5,7 +5,7 @@ import Meta from './Meta';
 // @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 //This must be HERE, it cannot be inline but it causes an error in the browser. 
-const style = <style jsx>{`
+const style = <style>{`
 
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,

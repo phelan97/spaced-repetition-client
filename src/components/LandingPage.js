@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import myImg from './static/wide_heroSmall.svg';
 import ButtonComp from './Button';
 
-const style = <style jsx>{`
+const style = <style>{`
 img {
   width: 35vw;
 }
