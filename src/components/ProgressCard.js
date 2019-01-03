@@ -32,8 +32,15 @@ function ProgressCard(props) {
   } else {
 
   }
+  const numGuesses = props.numCorrect + props.numIncorrect;
+  let accuracyText;
+  if(numGuesses > 0) {
+    const accuracy = props.numCorrect/numGuesses;
+    accuracyText = `Word accuracy: ${Math.round(accuracy*100)}%`;
+  } else {
+    accuracyText = `No data for this word!`;
+  }
 
-  const accuracyText = `Word accuracy: ${Math.round(props.accuracy*100)}%`;
   return (
     <div className="progress-card">
       <span className="question-info">{props.englishWord + ' / ' + props.germanWord}</span>
