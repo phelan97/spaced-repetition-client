@@ -1,3 +1,4 @@
+# Learn German
 
 ## Summary
 This app was initially created in one week with [Mathew Williamson](https://github.com/mathewbwilliamson). It tests the user's
@@ -9,3 +10,10 @@ of words, depending on how often they answer each question correctly.
 ## Demo Account
 email: foo@bar.com
 password: password
+
+## Technologies
+* React
+* Apollo Client
+* Node.js
+* graphql-yoga
+* Mongoose
